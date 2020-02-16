@@ -1,5 +1,5 @@
 import React from "react";
-import BoxShadow from "../boxShadow";
+import BoxShadow from "./boxShadow";
 import { DefaultProps } from "../interfaces";
 
 const Processor = ({ wrapper = "", className, children }: DefaultProps) => {

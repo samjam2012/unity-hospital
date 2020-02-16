@@ -1,5 +1,5 @@
 import React from "react";
-import { mergeClasses } from "../../utils";
+import { mergeClasses } from "../../../utils";
 import styles from "./styles.scss";
 
 const BoxShadow = ({
