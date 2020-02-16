@@ -1,9 +1,3 @@
-html {
-  color: map-get($color, "text");
-  background-color: map-get($color, "background");
-  text-shadow: map-get($shadow, "text");
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -11,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  width: 100%;
 }
 
 code {
@@ -18,9 +14,23 @@ code {
     monospace;
 }
 
+.base {
+  display: flex;
+  color: map-get($color, "_gray");
+  background-color: map-get($color, "_baby-blue");
+  text-shadow: map-get($shadow, "_text");
+  height: 100vh;
+}
+
+html {
+  @extend .base;
+}
+
 .App {
+  // @extend .base;
   text-align: center;
-  color: map-get($color, "text");
-  background-color: map-get($color, "background");
-  text-shadow: map-get($shadow, "text");
+}
+
+* {
+  box-sizing: border-box;
 }

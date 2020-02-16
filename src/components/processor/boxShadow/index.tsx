@@ -1,19 +1,15 @@
 import React from "react";
-import { mergeClasses } from "../../../utils";
 import styles from "./styles.scss";
+import { BoxShadowProps } from "../../../interfaces";
 
 const BoxShadow = ({
-  className,
-  children
-}: {
-  className?: string;
-  children: any;
-}) => {
+  children,
+  options = { direction: "bottom" }
+}: BoxShadowProps) => {
+  const { direction } = options;
   return (
-    <div className={styles.container}>
-      <div className={mergeClasses([styles.children, className])}>
-        {children}
-      </div>
+    <div className={styles[direction]}>
+      <div>{children}</div>
     </div>
   );
 };

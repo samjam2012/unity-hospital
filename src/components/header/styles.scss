@@ -1,16 +1,25 @@
-$header_border_color: map-get($color, "secondary");
-$header_shadow: map-get($shadow, "header");
-$header_size: map-get($header-size, "default");
+$header_border_color: map-get($color, "_purple");
+$header_shadow: map-get($shadow, "_header");
+$header_size: map-get($header-size, "_default");
 
 .header {
-  text-align: left;
+  text-align: center;
   font-size: $header_size;
   text-shadow: $header_shadow;
   border-bottom: 0.5rem solid $header_border_color;
   margin-bottom: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
+  box-shadow: 0px 10px 10px -10px black;
+}
 
-  @media (max-width: $baseline-width) {
-    text-align: center;
-  }
+.left {
+  @extend .header;
+
+  text-align: left;
+  margin-right: 20%;
+}
+
+.round {
+  @extend .header;
+  border-radius: 50%;
 }

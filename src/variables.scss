@@ -1,20 +1,23 @@
-@function getSelector($selector) {
-}
-
 $header-size: (
-  default: 2rem
+  _default: 2rem
 );
 
 $color: (
-  text: rgb(72, 72, 72),
-  text-light: rgb(106, 106, 106),
-  background: rgb(127, 215, 239),
-  secondary: rgb(55, 10, 106)
+  _baby-blue: rgb(152, 233, 255),
+  _light-blue: rgba(114, 224, 255, 0.673),
+  _gray-light: rgb(106, 106, 106),
+  _gray: rgb(72, 72, 72),
+  _light-teal: rgb(130, 255, 232),
+  _pink: rgb(255, 231, 251),
+  _purple: rgb(55, 10, 106)
 );
 
 $shadow: (
-  header: 0.075rem 0.075rem 0.1rem map-get($color, "text"),
-  text: 0.05rem 0.05rem 0.2rem map-get($color, "text-light")
+  _header: 0.03rem 0.03rem 0.1rem map-get($color, "_gray"),
+  _text: 0.01rem 0.01rem 0.1rem map-get($color, "_gray-light")
 );
 
 $baseline-width: 415px;
+$box-shadow: (
+  _light: 0px 0px 5px -1px
+);
