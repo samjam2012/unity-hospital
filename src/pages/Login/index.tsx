@@ -1,9 +1,7 @@
 import React from "react";
 
-const Login = () => {
+export default function Login() {
   // const [movies, setMovies] = useContext(MovieContext);
 
   return <div className="uk-heading-medium">Login</div>;
-};
-
-export default Login;
+}

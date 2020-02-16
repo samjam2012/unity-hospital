@@ -1,0 +1,11 @@
+$header_color: map-get($color, "text");
+$header_background: map-get($color, "background");
+
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.children {
+  box-shadow: 0px 8px 10px -5px $header_color;
+}

@@ -2,7 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./app/App.scss";
 import App from "./app/App";
-import * as serviceWorker from "./utils/serviceWorker";
+import * as serviceWorker from "./utils/services/serviceWorker";
+import { setConfig } from "react-hot-loader";
+
+setConfig({
+  showReactDomPatchNotification: false
+});
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

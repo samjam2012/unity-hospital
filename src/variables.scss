@@ -1,2 +1,20 @@
-$primary-color: rgb(127, 215, 239);
-$secondary-color: rgb(249, 164, 238);
+@function getSelector($selector) {
+}
+
+$header-size: (
+  default: 2rem
+);
+
+$color: (
+  text: rgb(72, 72, 72),
+  text-light: rgb(106, 106, 106),
+  background: rgb(127, 215, 239),
+  secondary: rgb(55, 10, 106)
+);
+
+$shadow: (
+  header: 0.075rem 0.075rem 0.1rem map-get($color, "text"),
+  text: 0.05rem 0.05rem 0.2rem map-get($color, "text-light")
+);
+
+$baseline-width: 415px;

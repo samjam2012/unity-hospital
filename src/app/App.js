@@ -1,18 +1,13 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
-import { setConfig } from "react-hot-loader";
 import { Router } from "@reach/router";
-import Dashboard from "../pages/Dashboard";
-import Login from "../pages/Login";
-
-setConfig({
-  showReactDomPatchNotification: false
-});
+import { Welcome, Login, Dashboard } from "../pages";
 
 const App = ({ store, W }) => (
   <Router>
-    <Dashboard path="/" />
+    <Welcome path="welcome" />
     <Login path="login" />
+    <Dashboard path="/" />
   </Router>
 );
 

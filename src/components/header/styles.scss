@@ -1,0 +1,16 @@
+$header_border_color: map-get($color, "secondary");
+$header_shadow: map-get($shadow, "header");
+$header_size: map-get($header-size, "default");
+
+.header {
+  text-align: left;
+  font-size: $header_size;
+  text-shadow: $header_shadow;
+  border-bottom: 0.5rem solid $header_border_color;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+
+  @media (max-width: $baseline-width) {
+    text-align: center;
+  }
+}
