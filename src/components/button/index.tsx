@@ -11,6 +11,7 @@ const Button = ({
   children: buttonText
 }: ButtonProps) => {
   const { size } = options;
+
   return (
     <Link to={to} className={mergeClasses([styles[size], className])}>
       {buttonText}

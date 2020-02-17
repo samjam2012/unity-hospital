@@ -1,5 +1,5 @@
 import Welcome from "./Welcome";
 import Login from "./Login";
-import Dashboard from "./Dashboard";
+import Portal from "./Portal";
 
-export { Welcome, Login, Dashboard };
+export { Welcome, Login, Portal };

@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./styles.scss";
-import { Container, Header, Section, Button } from "../../components";
-import { mergeClasses } from "../../utils";
-import { Page } from "../../interfaces";
-export default function Welcome(props: Page) {
+import { Container, Header, Section, Button } from "../../../components";
+import { mergeClasses } from "../../../utils";
+
+export default function Doctor() {
   return (
-    <Container options={{ width: "80%" }}>
-      <Header options={{ platformType: "round" }}>My Dashboard</Header>
+    <Container options={{ padding: "0" }}>
+      <Header options={{ align: "left", platformType: "flat" }}>
+        Hello Doctor Liu
+      </Header>
 
       <Section>
         <div className="uk-align-items uk-text-center">
@@ -18,7 +20,7 @@ export default function Welcome(props: Page) {
             styles.buttonContainer
           ])}
         >
-          <Button to="/doctor" options={{ size: "small" }}>
+          <Button to="" options={{ size: "small" }}>
             Doctor
           </Button>
           <Button options={{ size: "small" }}>Patient</Button>

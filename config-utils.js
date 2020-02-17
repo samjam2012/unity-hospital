@@ -5,6 +5,22 @@
  * */
 const path = require("path");
 
+const fs = require("fs");
+let paths = [];
+const parsePath = (partialUrl = "") => {
+  const pathArray = fs
+    .readdirSync(process.cwd() + "/src/pages" + partialUrl)
+    .filter(p => !p.includes("."));
+
+  pathArray.forEach(path => {
+    if (path[0] === path[0].toLowerCase()) {
+      paths.push(path);
+    } else {
+      parsePath(`${partialUrl}/${path}`);
+    }
+  });
+};
+
 const utils = {
   injectCustomSassLoaders: config => {
     const loaders = config.module.rules[2].oneOf;
@@ -38,6 +54,10 @@ const utils = {
     // attaches
     addGlobalSassVariables(scssLoader);
     addGlobalSassVariables(scssModuleLoader);
+  },
+  findSubComponents: () => {
+    parsePath();
+    return paths;
   }
 };
 
