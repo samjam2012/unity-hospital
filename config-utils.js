@@ -55,9 +55,9 @@ const utils = {
     addGlobalSassVariables(scssLoader);
     addGlobalSassVariables(scssModuleLoader);
   },
-  findSubComponents: () => {
+  cacheSubComponents: config => {
     parsePath();
-    return paths;
+    config.cache = { relativePaths: paths };
   }
 };
 

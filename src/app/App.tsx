@@ -1,12 +1,12 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
 import { Router } from "@reach/router";
-import { Welcome, Portal } from "../pages";
+import { Portal, Login } from "../pages";
 
 const App = () => (
   <Router>
-    <Welcome path="welcome" />
-    <Portal path="/:userType" />
+    <Login path="login" />
+    <Portal userType={""} path="/" />
   </Router>
 );
 
