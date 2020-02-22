@@ -6,7 +6,7 @@ import { Portal, Login } from "../pages";
 const App = () => (
   <Router>
     <Login path="login" />
-    <Portal userType={""} path="/" />
+    <Portal path="/" />
   </Router>
 );
 

@@ -1,1 +1,1 @@
-export const mergeClasses = classArr => classArr.join(" ");
+export const mergeClasses = (classArr: string[]) => classArr.join(" ");

@@ -1,8 +1,13 @@
-const utils = require("./config-utils");
+const {
+  // cacheSubComponents,
+  injectCustomSassLoaders,
+  preventExternalsBundling
+} = require("./config-utils");
 
 const override = (config, env) => {
-  // utils.cacheSubComponents(config);
-  utils.injectCustomSassLoaders(config);
+  // cacheSubComponents(config);
+  injectCustomSassLoaders(config);
+  preventExternalsBundling(config);
 
   return config;
 };

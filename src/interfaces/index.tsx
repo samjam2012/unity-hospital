@@ -18,9 +18,6 @@ export interface SizeOption {
 
 export interface Page extends RouteComponentProps {}
 
-export interface PortalPageProps extends Page {
-  userType?: string;
-}
 export interface DefaultProps {
   children: any;
   className?: string;
