@@ -1,4 +1,3 @@
-import React from "react";
 import Doctor from "./doctor";
 import Patient from "./patient";
 import Login from "../Login";
