@@ -3,23 +3,23 @@
  *
  *
  * */
-const path = require("path");
+// const path = require("path");
 
-const fs = require("fs");
-let paths = [];
-const parsePath = (partialUrl = "") => {
-  const pathArray = fs
-    .readdirSync(process.cwd() + "/src/pages" + partialUrl)
-    .filter(p => !p.includes("."));
+// const fs = require("fs");
+// let paths = [];
+// const parsePath = (partialUrl = "") => {
+//   const pathArray = fs
+//     .readdirSync(process.cwd() + "/src/pages" + partialUrl)
+//     .filter(p => !p.includes("."));
 
-  pathArray.forEach(path => {
-    if (path[0] === path[0].toLowerCase()) {
-      paths.push(path);
-    } else {
-      parsePath(`${partialUrl}/${path}`);
-    }
-  });
-};
+//   pathArray.forEach(path => {
+//     if (path[0] === path[0].toLowerCase()) {
+//       paths.push(path);
+//     } else {
+//       parsePath(`${partialUrl}/${path}`);
+//     }
+//   });
+// };
 
 const utils = config => ({
   injectCustomSassLoaders: () => {
