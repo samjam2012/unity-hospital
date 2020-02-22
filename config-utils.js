@@ -21,8 +21,8 @@ const parsePath = (partialUrl = "") => {
   });
 };
 
-const utils = {
-  injectCustomSassLoaders: config => {
+const utils = config => ({
+  injectCustomSassLoaders: () => {
     const loaders = config.module.rules[2].oneOf;
     let cssLoader;
     let cssModuleLoader;
@@ -59,7 +59,7 @@ const utils = {
     parsePath();
     return paths;
   }
-};
+});
 
 const styleVariables = {
   sourceMap: false,

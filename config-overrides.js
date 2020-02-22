@@ -1,7 +1,7 @@
-const utils = require("./config-utils");
-
 const override = (config, env) => {
-  utils.injectCustomSassLoaders(config);
+  const { injectCustomSassLoaders } = require("./config-utils")(config);
+
+  injectCustomSassLoaders();
   return config;
 };
 
