@@ -1,9 +1,10 @@
 import React from "react";
-import { PortalPageProps as Props } from "../../interfaces";
+import { Page } from "../../interfaces";
 import { pageRouter } from "./utils";
+import Doctor from "./doctor";
 
-export default function Portal({ userType }: Props) {
-  const Portal = pageRouter(userType);
+export default function Portal({}: Page) {
+  const Portal = Doctor;
 
   return <Portal />;
 }
