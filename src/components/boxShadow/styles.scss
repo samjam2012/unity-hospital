@@ -1,4 +1,8 @@
 .container {
+  overflow: hidden;
+}
+
+.inner {
   background: transparent;
   padding: 2rem;
 
@@ -8,14 +12,12 @@
 }
 
 .left-right {
-  overflow: hidden;
-  padding: 0rem 2rem;
+  @extend .container;
 
-  margin: auto;
-  width: 80%;
+  padding: 0rem 1rem;
 
   > div {
-    @extend .container;
+    @extend .inner;
 
     box-shadow: 10px 0 12px -10px map-get($color, "_gray"),
       -10px 0 12px -10px map-get($color, "_gray");
@@ -23,7 +25,8 @@
 }
 
 .bottom {
-  overflow: hidden;
+  @extend .container;
+
   padding: 2rem 0rem;
 
   > div {

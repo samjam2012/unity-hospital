@@ -5,5 +5,7 @@ interface BoxShadowOptions {
 }
 
 export default interface BoxShadow extends DefaultProps {
+  classOuter?: string;
+  classInner?: string;
   options?: BoxShadowOptions;
 }

@@ -1,19 +1,4 @@
-.container {
-  background: map-get($color, "_baby-blue");
-
-  padding: 2rem;
-}
-.outer {
-  overflow: hidden;
-  padding: 0rem 2rem;
-
-  margin: auto;
-  width: 80%;
-}
-
 .medium {
-  @extend .container;
-
-  box-shadow: 10px 0 12px -10px map-get($color, "_gray"),
-    -10px 0 12px -10px map-get($color, "_gray");
+  width: 80%;
+  margin: auto;
 }

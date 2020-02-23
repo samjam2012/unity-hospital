@@ -2,16 +2,11 @@ $header_border_color: map-get($color, "_purple");
 $header_shadow: map-get($shadow, "_header");
 $header_size: map-get($header-size, "_default");
 
-.container {
-  width: 80%;
-}
-
 .header {
   text-align: center;
   font-size: $header_size;
   text-shadow: $header_shadow;
-  border-bottom: 0.5rem solid $header_border_color;
-  // box-shadow: 0 10px 10px -5px;
+  margin: 0rem;
 }
 
 .left {
@@ -24,4 +19,11 @@ $header_size: map-get($header-size, "_default");
 .round {
   @extend .header;
   border-radius: 50%;
+}
+
+.wrapper {
+  width: 80%;
+}
+.inner {
+  border-bottom: 0.5rem solid $header_border_color;
 }

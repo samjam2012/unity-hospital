@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.scss";
 import { mergeClasses } from "../../utils";
 import { DefaultProps } from "../../interfaces";
-import BoxShadow from "../processor/boxShadow";
+import BoxShadow from "../boxShadow";
 
 const Header = ({
   children: innerText,
@@ -11,7 +11,7 @@ const Header = ({
 }: DefaultProps) => {
   const { alignment = "center", platformType = "flat" } = options;
   return (
-    <BoxShadow>
+    <BoxShadow classOuter={styles.wrapper} classInner={styles.inner}>
       <div
         className={mergeClasses([
           "uk-heading-small",

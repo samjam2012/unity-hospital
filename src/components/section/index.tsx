@@ -1,14 +1,12 @@
 import React from "react";
 import { SizeProps } from "../../interfaces";
-import BoxShadow from "../processor/boxShadow";
+import BoxShadow from "../boxShadow";
+import styles from "./styles.scss";
 
-const Section = ({
-  children,
-  className,
-  options = { size: "medium" }
-}: SizeProps) => {
+const Section = ({ children, options = { size: "medium" } }: SizeProps) => {
+  const { size } = options;
   return (
-    <BoxShadow options={{ ...options, direction: "left-right" }}>
+    <BoxShadow classOuter={styles[size]} options={{ direction: "left-right" }}>
       {children}
     </BoxShadow>
   );
