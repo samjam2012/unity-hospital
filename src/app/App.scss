@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  width: 100%;
 }
 
 code {
@@ -12,6 +14,23 @@ code {
     monospace;
 }
 
+.base {
+  display: flex;
+  color: map-get($color, "_gray");
+  background-color: map-get($color, "_baby-blue");
+  text-shadow: map-get($shadow, "_text");
+  height: 100vh;
+}
+
+html {
+  @extend .base;
+}
+
 .App {
+  // @extend .base;
   text-align: center;
+}
+
+* {
+  box-sizing: border-box;
 }

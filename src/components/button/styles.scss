@@ -1,0 +1,29 @@
+.button {
+  background-color: map-get($color, "_pink");
+  border-radius: 1rem;
+  box-shadow: map-get($box-shadow, "_light");
+  color: map-get($color, "_gray");
+  opacity: 1;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 200ms;
+
+  &:hover {
+    color: map-get($color, "_gray");
+    text-decoration: none;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.small {
+  @extend .button;
+
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  width: 30%;
+
+  min-width: 3.75rem;
+}

@@ -1,9 +1,39 @@
 import React from "react";
+import styles from "./styles.scss";
+import { Container, Header, Section, Button } from "../../components";
+import { mergeClasses } from "../../utils";
+import { Page } from "../../interfaces";
+import { useAuth0 } from "../../services/auth/react-auth0-spa";
 
-const Login = () => {
-  // const [movies, setMovies] = useContext(MovieContext);
+export default function Login(props: Page) {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  return <div className="uk-heading-medium">Login</div>;
-};
+  return (
+    <Container options={{ width: "80%" }}>
+      <Header options={{ platformType: "round" }}>Unity Hospital</Header>
 
-export default Login;
+      <Section>
+        <div className="uk-align-items uk-text-center">Please login below</div>
+        <div
+          className={mergeClasses([
+            "uk-flex uk-flex-between",
+            styles.buttonContainer
+          ])}
+        >
+          {isAuthenticated ? (
+            <Button onClick={() => logout({})} options={{ size: "small" }}>
+              Log Out
+            </Button>
+          ) : (
+            <Button
+              onClick={() => loginWithRedirect({})}
+              options={{ size: "small" }}
+            >
+              Sign In
+            </Button>
+          )}
+        </div>
+      </Section>
+    </Container>
+  );
+}

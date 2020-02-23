@@ -5,8 +5,24 @@
  * */
 const path = require("path");
 
-const utils = {
-  injectCustomSassLoaders: config => {
+// const fs = require("fs");
+// let paths = [];
+// const parsePath = (partialUrl = "") => {
+//   const pathArray = fs
+//     .readdirSync(process.cwd() + "/src/pages" + partialUrl)
+//     .filter(p => !p.includes("."));
+
+//   pathArray.forEach(path => {
+//     if (path[0] === path[0].toLowerCase()) {
+//       paths.push(path);
+//     } else {
+//       parsePath(`${partialUrl}/${path}`);
+//     }
+//   });
+// };
+
+const utils = config => ({
+  injectCustomSassLoaders: () => {
     const loaders = config.module.rules[2].oneOf;
     let cssLoader;
     let cssModuleLoader;
@@ -39,7 +55,11 @@ const utils = {
     addGlobalSassVariables(scssLoader);
     addGlobalSassVariables(scssModuleLoader);
   }
-};
+  // findSubComponents: () => {
+  //   parsePath();
+  //   return paths;
+  // }
+});
 
 const styleVariables = {
   sourceMap: false,
