@@ -2,21 +2,23 @@ $header_border_color: map-get($color, "_purple");
 $header_shadow: map-get($shadow, "_header");
 $header_size: map-get($header-size, "_default");
 
+.container {
+  width: 80%;
+}
+
 .header {
   text-align: center;
   font-size: $header_size;
   text-shadow: $header_shadow;
   border-bottom: 0.5rem solid $header_border_color;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  box-shadow: 0px 10px 10px -10px black;
+  // box-shadow: 0 10px 10px -5px;
 }
 
 .left {
   @extend .header;
+  padding: 0rem 2rem;
 
   text-align: left;
-  margin-right: 20%;
 }
 
 .round {

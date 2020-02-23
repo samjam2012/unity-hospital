@@ -24,15 +24,9 @@
 
 .bottom {
   overflow: hidden;
-  padding: 0rem 2rem;
-
-  margin: auto;
-  width: 80%;
+  padding: 2rem 0rem;
 
   > div {
-    @extend .container;
-
-    box-shadow: 10px 0 12px -10px map-get($color, "_gray"),
-      -10px 0 12px -10px map-get($color, "_gray");
+    box-shadow: 0 10px 10px -7px map-get($color, "_gray");
   }
 }

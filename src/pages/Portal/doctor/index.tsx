@@ -6,7 +6,7 @@ import { mergeClasses } from "../../../utils";
 export default function Doctor() {
   return (
     <Container options={{ padding: "0" }}>
-      <Header options={{ align: "left", platformType: "flat" }}>
+      <Header options={{ alignment: "left", platformType: "flat" }}>
         Hello Doctor Liu
       </Header>
 
