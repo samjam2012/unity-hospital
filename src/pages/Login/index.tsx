@@ -3,26 +3,35 @@ import styles from "./styles.scss";
 import { Container, Header, Section, Button } from "../../components";
 import { mergeClasses } from "../../utils";
 import { Page } from "../../interfaces";
+import { useAuth0 } from "../../services/auth/react-auth0-spa";
 
 export default function Login(props: Page) {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
     <Container options={{ width: "80%" }}>
-      <Header options={{ platformType: "round" }}>My Dashboard</Header>
+      <Header options={{ platformType: "round" }}>Unity Hospital</Header>
 
       <Section>
-        <div className="uk-align-items uk-text-center">
-          Please select a portal below
-        </div>
+        <div className="uk-align-items uk-text-center">Please login below</div>
         <div
           className={mergeClasses([
             "uk-flex uk-flex-between",
             styles.buttonContainer
           ])}
         >
-          <Button to="/" options={{ size: "small" }}>
-            Doctor
-          </Button>
-          <Button options={{ size: "small" }}>Patient</Button>
+          {isAuthenticated ? (
+            <Button onClick={() => logout({})} options={{ size: "small" }}>
+              Log Out
+            </Button>
+          ) : (
+            <Button
+              onClick={() => loginWithRedirect({})}
+              options={{ size: "small" }}
+            >
+              Sign In
+            </Button>
+          )}
         </div>
       </Section>
     </Container>

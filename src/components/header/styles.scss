@@ -21,9 +21,6 @@ $header_size: map-get($header-size, "_default");
   border-radius: 50%;
 }
 
-.wrapper {
-  width: 80%;
-}
 .inner {
   border-bottom: 0.5rem solid $header_border_color;
 }

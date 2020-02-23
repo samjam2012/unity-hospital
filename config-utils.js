@@ -3,7 +3,7 @@
  *
  *
  * */
-// const path = require("path");
+const path = require("path");
 
 // const fs = require("fs");
 // let paths = [];
@@ -54,11 +54,11 @@ const utils = config => ({
     // attaches
     addGlobalSassVariables(scssLoader);
     addGlobalSassVariables(scssModuleLoader);
-  },
-  findSubComponents: () => {
-    parsePath();
-    return paths;
   }
+  // findSubComponents: () => {
+  //   parsePath();
+  //   return paths;
+  // }
 });
 
 const styleVariables = {

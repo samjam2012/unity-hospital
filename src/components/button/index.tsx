@@ -5,15 +5,22 @@ import { ButtonProps } from "../../interfaces";
 import { Link } from "@reach/router";
 
 const Button = ({
-  to = "",
-  options = { size: "medium" },
+  children: buttonText,
   className,
-  children: buttonText
+  onClick,
+  options = {},
+  to = ""
 }: ButtonProps) => {
-  const { size } = options;
+  const { size = "medium" } = options;
 
   return (
-    <Link to={to} className={mergeClasses([styles[size], className])}>
+    <Link
+      onClick={() => {
+        if (onClick) onClick();
+      }}
+      to={to}
+      className={mergeClasses([styles[size], className])}
+    >
       {buttonText}
     </Link>
   );
