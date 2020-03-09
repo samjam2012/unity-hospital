@@ -2,11 +2,14 @@ import React from "react";
 import { hot } from "react-hot-loader/root";
 import { useAuth0 } from "../services/auth/react-auth0-spa";
 
-import { Router } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import { Login, Portal } from "../pages";
+import AuthProps from "../interfaces/_";
 
 const App = () => {
-  const { loading } = useAuth0();
+  const { isAuthenticated, loading }: AuthProps = useAuth0();
+
+  if (!loading && !isAuthenticated) navigate("/login");
 
   return loading ? (
     <div>Loading...</div>
