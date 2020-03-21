@@ -65,7 +65,7 @@ const styleVariables = {
   sourceMap: false,
   prependData: `@import "${path.resolve(
     __dirname,
-    "./src/styles/variables.scss"
+    "./src/app/styles/variables.scss"
   )}";`
 };
 
