@@ -1,7 +1,7 @@
-export * from "./pages";
-export * from "./component";
-export * from "./options";
-export * from "./_";
+export * from "./app";
+export * from "./app/components";
+export * from "./app/options";
+export * from "./app/pages";
 
 export interface DefaultProps {
   children: any;

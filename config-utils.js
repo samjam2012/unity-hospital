@@ -63,7 +63,10 @@ const utils = config => ({
 
 const styleVariables = {
   sourceMap: false,
-  prependData: `@import "${path.resolve(__dirname, "./src/variables.scss")}";`
+  prependData: `@import "${path.resolve(
+    __dirname,
+    "./src/app/styles/variables.scss"
+  )}";`
 };
 
 const addCustomSassOptions = loader => {
