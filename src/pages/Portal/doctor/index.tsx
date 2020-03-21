@@ -14,8 +14,13 @@ export default function Doctor() {
       </Header>
 
       <Section>
-        <div className="uk-align-items uk-text-center">
-          Please select a portal below
+        <div
+          className={mergeClasses([
+            "uk-align-items uk-text-center",
+            styles.container
+          ])}
+        >
+          <div className={styles.text}>Please select a portal below</div>
         </div>
         <div
           className={mergeClasses([
