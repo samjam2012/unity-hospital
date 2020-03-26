@@ -5,7 +5,6 @@ import { setConfig } from "react-hot-loader";
 import App from "./app/App";
 import "./app/App.scss";
 import history from "./services/history";
-import { useAuth } from "./app/hooks";
 import { domain, clientId } from "./configs/auth_client.json";
 import { Auth0Provider } from "./providers/auth";
 setConfig({
@@ -20,8 +19,6 @@ const onRedirectCallback = appState => {
   );
 };
 
-const authStatus = useAuth();
-
 render(
   <Auth0Provider
     domain={domain}
@@ -29,7 +26,7 @@ render(
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >
-    <App authStatus={authStatus} />
+    <App />
   </Auth0Provider>,
   document.getElementById("root")
 );
