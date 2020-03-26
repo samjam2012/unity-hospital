@@ -4,5 +4,6 @@
 }
 
 .wrapper {
+  @extend .absoluteCentered;
   width: 80%;
 }

@@ -2,13 +2,10 @@ import React from "react";
 import { hot } from "react-hot-loader/root";
 import { Router, navigate } from "@reach/router";
 
-import { useAuth } from "./hooks";
 import { Login, Portal } from "./pages";
 import Props from "../interfaces/app";
 
-const App = () => {
-  const { isAuthenticated, loading }: Props = useAuth();
-
+const App = ({ isAuthenticated, loading }: Props) => {
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -19,7 +16,7 @@ const App = () => {
     <Router>
       <Login path="login" />
 
-      <Portal path="/" />
+      <Portal path="/"></Portal>
     </Router>
   );
 };

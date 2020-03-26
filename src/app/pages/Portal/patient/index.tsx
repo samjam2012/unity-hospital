@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.scss";
 import { Container, Header, Section, Button } from "../../../components";
 import { mergeClasses } from "../../../utils";
-import { Page } from "../../../../interfaces";
+import Page from "../../../../interfaces/app/page";
 
 export default function Doctor(props: Page) {
   return (

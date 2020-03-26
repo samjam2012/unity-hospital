@@ -1,12 +1,12 @@
 import React from "react";
-import { SizeProps } from "../../../interfaces";
+import { SectionProps as Props } from "../../../interfaces/app/components";
 import BoxShadow from "../_wrappers/boxShadow";
 import styles from "./styles.scss";
 
-const Section = ({ children, options = {} }: SizeProps) => {
-  const { size = "medium" } = options;
+const Section = ({ children, options = {} }: Props) => {
+  const { shadowDirection = "left-right", size = "full" } = options;
   return (
-    <BoxShadow classOuter={styles[size]} options={{ direction: "left-right" }}>
+    <BoxShadow classOuter={styles[size]} options={{ shadowDirection }}>
       {children}
     </BoxShadow>
   );

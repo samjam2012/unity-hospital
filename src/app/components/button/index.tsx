@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.scss";
 import { mergeClasses } from "../../utils";
-import { ButtonProps } from "../../../interfaces/app/components";
+import { ButtonProps as Props } from "../../../interfaces/app/components";
 import { Link } from "@reach/router";
 
 const Button = ({
@@ -10,7 +10,7 @@ const Button = ({
   onClick,
   options = {},
   to = ""
-}: ButtonProps) => {
+}: Props) => {
   const { size = "medium" } = options;
 
   return (

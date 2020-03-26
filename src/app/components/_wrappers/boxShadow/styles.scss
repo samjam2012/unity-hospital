@@ -24,10 +24,19 @@
   }
 }
 
+.right {
+  @extend .container;
+
+  > div {
+    background: white;
+    box-shadow: -10 10px 15px -7px map-get($color, "_gray");
+  }
+}
+
 .bottom {
   @extend .container;
 
-  padding: 2rem 0rem;
+  padding: 0 0 2rem;
 
   > div {
     box-shadow: 0 10px 10px -7px map-get($color, "_gray");
