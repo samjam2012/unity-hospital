@@ -1,10 +1,8 @@
-// import { DefaultProps } from "..";
+import { DefaultProps } from "../..";
+import { ShadowOption } from "../options";
 
-export interface BoxShadowProps {
+export default interface Props extends DefaultProps {
   classOuter?: string;
   classInner?: string;
-  options?: {
-    direction?: "left-right" | "bottom";
-  };
-  children: any;
+  options: ShadowOption;
 }

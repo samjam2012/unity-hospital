@@ -1,4 +1,4 @@
-export default interface AppProps {
+export default interface Props {
   isAuthenticated: boolean;
   loading: boolean;
 }

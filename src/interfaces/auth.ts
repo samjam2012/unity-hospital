@@ -1,4 +1,4 @@
-export default interface AuthProps {
+export default interface Props {
   isAuthenticated: boolean;
   user?: {
     nickname: string;

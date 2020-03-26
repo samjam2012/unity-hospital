@@ -1,9 +1,10 @@
 import { DefaultProps } from "../..";
 
-export interface HeaderProps extends DefaultProps {
-  options?: {
-    alignment?: string;
-    platformType?: string;
-    wrapper?: string;
-  };
+interface HeaderOptions {
+  alignment?: string;
+  platformType?: string;
+}
+
+export default interface HeaderProps extends DefaultProps {
+  options?: HeaderOptions;
 }
