@@ -1,41 +1,24 @@
 import React from "react";
 import styles from "./styles.scss";
-import { Container, Header, Section, Button } from "../../../components";
-import { mergeClasses } from "../../../utils";
+import { Container, Header, SideBar, Button } from "../../../components";
 import { useAuth } from "../../../hooks";
+import { Page } from "../../../../interfaces/app/pages";
 
-export default function Doctor() {
+export default function Doctor(props: Page) {
   const { user, logout } = useAuth();
   console.log("Doctor: ", user);
   return (
     <Container options={{ padding: "0" }}>
       <Header options={{ alignment: "left", platformType: "flat" }}>
-        Hello Doctor Liu
-      </Header>
-
-      <Section>
-        <div
-          className={mergeClasses([
-            "uk-align-items uk-text-center",
-            styles.container
-          ])}
-        >
-          <div className={styles.text}>Please select a portal below</div>
-        </div>
-        <div
-          className={mergeClasses([
-            "uk-flex uk-flex-between",
-            styles.buttonContainer
-          ])}
-        >
-          <Button to="" options={{ size: "small" }}>
-            Doctor
-          </Button>
+        <div>Hello Dr. Jamal</div>
+        <div className={styles.buttonContainer}>
           <Button onClick={() => logout({})} options={{ size: "small" }}>
             Log Out
           </Button>
         </div>
-      </Section>
+      </Header>
+
+      <SideBar links={["home", "dash"]} />
     </Container>
   );
 }

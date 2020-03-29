@@ -1,6 +1,5 @@
-import React from "react";
+import React, { createContext, useEffect, useState } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-const { createContext, useEffect, useState } = React;
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
@@ -103,7 +102,6 @@ const Auth0Provider = ({
         loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
         getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
         getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
-        // getRoles: (...p) => auth0Client.getRoles(...p),
         logout: (...p) => auth0Client.logout(...p)
       }}
     >

@@ -16,9 +16,7 @@ code {
 
 .base {
   display: flex;
-  color: map-get($color, "_gray");
-  background-color: map-get($color, "_baby-blue");
-  text-shadow: map-get($shadow, "_text");
+  background-color: map-get($pascal, "_baby-blue");
   height: 100vh;
 }
 
@@ -27,10 +25,14 @@ html {
 }
 
 .App {
-  // @extend .base;
   text-align: center;
 }
 
 * {
+  color: map-get($color, "_gray") !important;
+  text-shadow: map-get($shadow, "_text") !important;
   box-sizing: border-box;
+  &:hover {
+    text-decoration: none !important;
+  }
 }

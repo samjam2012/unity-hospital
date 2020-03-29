@@ -1,0 +1,25 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1rem 0rem;
+
+  .link {
+    flex: 1;
+    border-bottom: 1px solid map-get($color, "_light-gray");
+    padding: 0.25rem 1rem;
+    transition: padding 200ms;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+.left {
+  @extend .sideBar;
+  width: 10rem;
+}

@@ -2,7 +2,7 @@ import { DefaultProps } from "../../";
 import { ShadowOption } from "../options";
 
 interface SectionOptions extends ShadowOption {
-  size?: "medium" | "large" | "full";
+  size?: "full" | "large" | "medium" | "small";
 }
 
 export default interface SectionProps extends DefaultProps {

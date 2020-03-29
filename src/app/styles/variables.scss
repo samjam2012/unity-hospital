@@ -12,6 +12,10 @@ $color: (
   _purple: rgb(55, 10, 106)
 );
 
+$pascal: (
+  _baby-blue: rgba(195, 242, 255, 0.83)
+);
+
 $shadow: (
   _header: 0.03rem 0.03rem 0.1rem map-get($color, "_gray"),
   _text: 0.01rem 0.01rem 0.1rem map-get($color, "_gray-light")

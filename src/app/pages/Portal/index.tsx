@@ -1,9 +1,9 @@
 import React from "react";
-import Page from "../../../interfaces/app/page";
+import { PageContainer } from "../../../interfaces/app/pages";
 import Doctor from "./doctor";
 import { useAuth } from "../../hooks";
 
-export default function Portal(props: Page) {
+export default function Portal(props: PageContainer) {
   const {
     user: { role }
   } = useAuth();

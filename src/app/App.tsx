@@ -3,7 +3,7 @@ import { hot } from "react-hot-loader/root";
 import { Router, navigate } from "@reach/router";
 
 import { useAuth } from "./hooks";
-import { Login, Portal } from "./pages";
+import { Login, Portal, Home } from "./pages";
 import Props from "../interfaces/app";
 
 const App = () => {
@@ -19,7 +19,9 @@ const App = () => {
     <Router>
       <Login path="login" />
 
-      <Portal path="/" />
+      <Portal path="/">
+        <Home path="/" />
+      </Portal>
     </Router>
   );
 };
