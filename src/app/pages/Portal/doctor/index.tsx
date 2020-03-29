@@ -18,7 +18,7 @@ export default function Doctor(props: Page) {
         </div>
       </Header>
 
-      <SideBar links={["home", "dash"]} />
+      <SideBar links={["home", "patients", "appointments", "dash"]} />
     </Container>
   );
 }

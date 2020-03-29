@@ -55,7 +55,7 @@
     "lodash": "^4.16.3",
     "lost": "^8.3.1",
     "messageformat": "^1.1.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.10.2",
     "nyc": "^8.3.0",
     "postcss-loader": "3.0.0",
