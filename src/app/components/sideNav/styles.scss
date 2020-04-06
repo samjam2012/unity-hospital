@@ -1,0 +1,27 @@
+.container {
+  display: inline-block;
+  width: 10rem;
+
+  .header {
+    display: flex;
+    font-size: 1rem;
+  }
+
+  .sideNav {
+    display: inline-flex;
+    flex-direction: column;
+
+    .page {
+      box-shadow: shadowBottom();
+      flex: 1;
+      // border-right: 1px solid $gray-light;
+      padding: 0.25rem 1.5rem;
+
+      transition: box-shadow 200ms;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}

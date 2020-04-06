@@ -1,13 +1,13 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
-import { Router, navigate } from "@reach/router";
-
+import { Redirect, Router, navigate } from "@reach/router";
 import { useAuth } from "./hooks";
-import { Login, Portal, Home } from "./pages";
-import Props from "../interfaces/app";
+import Auth from "../interfaces/auth";
+import { Login, Dashboard } from "./pages";
+import { Home, Experiment } from "./pages/Dashboard";
 
 const App = () => {
-  const { isAuthenticated, loading }: Props = useAuth();
+  const { isAuthenticated, loading }: Auth = useAuth();
 
   if (loading) {
     return <div>Loading...</div>;
@@ -19,9 +19,10 @@ const App = () => {
     <Router>
       <Login path="login" />
 
-      <Portal path="/">
-        <Home path="/" />
-      </Portal>
+      <Dashboard path="/">
+        <Home path="*" />
+        <Experiment path="experiment" />
+      </Dashboard>
     </Router>
   );
 };

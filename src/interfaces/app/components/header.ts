@@ -1,7 +1,7 @@
 import { DefaultProps } from "../..";
 
 interface HeaderOptions {
-  alignment?: string;
+  alignment?: "left" | "center";
   platformType?: string;
 }
 

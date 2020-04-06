@@ -16,7 +16,7 @@ code {
 
 .base {
   display: flex;
-  background-color: map-get($pascal, "_baby-blue");
+  background-color: pullColor("primary");
   height: 100vh;
 }
 
@@ -29,7 +29,7 @@ html {
 }
 
 * {
-  color: map-get($color, "_gray") !important;
+  color: pullColor("text");
   text-shadow: map-get($shadow, "_text") !important;
   box-sizing: border-box;
   &:hover {

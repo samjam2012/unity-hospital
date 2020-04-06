@@ -1,4 +1,4 @@
-$header_border_color: map-get($color, "_purple");
+$header_border_color: $blue-strong;
 $header_shadow: map-get($shadow, "_header");
 $header_size: map-get($header-size, "_default");
 
@@ -8,7 +8,6 @@ $header_size: map-get($header-size, "_default");
   justify-content: space-between;
   margin: 0rem;
   text-align: center;
-  text-shadow: $header_shadow;
   width: 100%;
 }
 
@@ -26,4 +25,8 @@ $header_size: map-get($header-size, "_default");
 .inner {
   padding: 0.75rem;
   border-bottom: 0.5rem solid $header_border_color;
+
+  > div {
+    margin-bottom: 0;
+  }
 }

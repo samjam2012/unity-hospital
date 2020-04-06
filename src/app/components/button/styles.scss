@@ -1,8 +1,8 @@
 .button {
   @extend .actionHover;
-  background-color: map-get($color, "_pink");
+  background-color: $blue-strong;
   border-radius: 1rem;
-  color: map-get($color, "_gray");
+  color: $pink-soft !important;
   opacity: 1;
   text-align: center;
   text-transform: none;

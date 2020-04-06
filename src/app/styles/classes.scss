@@ -1,6 +1,6 @@
 @import "./variables.scss";
 
-.absoluteCentered {
+@mixin absoluteCentered {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -15,4 +15,24 @@
   &:active {
     box-shadow: none;
   }
+}
+
+@mixin shadow {
+  box-shadow: 0 0 5px #333;
+}
+
+@mixin shadow-top {
+  box-shadow: 0 -5px 5px -5px #333;
+}
+
+@mixin shadow-right {
+  box-shadow: 5px 0 5px -5px #333;
+}
+
+@mixin shadow-bottom {
+  box-shadow: 0 5px 5px -5px #333;
+}
+
+@mixin shadow-left {
+  box-shadow: -5px 0 5px -5px #333;
 }
