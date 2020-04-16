@@ -6,12 +6,11 @@ import { Page } from "../../../../interfaces/app/pages";
 
 export default function Doctor(props: Page) {
   const {
-    user,
-    user: { role },
+    user: { userType },
     logout
   } = useAuth();
 
-  const hasToolAccess = role === "admin";
+  const hasToolAccess = userType === "ADMIN";
 
   return (
     <div style={{ padding: "0" }}>

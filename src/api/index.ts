@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 
 const baseUrl = "http://localhost:8090";
@@ -15,24 +14,27 @@ const buildReqOptions = (path: string, method: "GET" | "POST", data?: any) => {
   };
 };
 
-const createUser = () => {
-  const options = buildReqOptions("/users", "POST", {});
+const createUser = async user => {
+  const options = buildReqOptions("/users", "POST", user);
 
   axios(options).then(response => {
     console.log(response);
   });
 };
 
-const getUser = authId => {
+const getUser = async authId => {
   const options = buildReqOptions(`/users/${authId}`, "GET");
 
-  axios(options)
-    .then(response => {
-      console.log(response);
+  let user;
+  await axios(options)
+    .then(({ data: users }) => {
+      user = users[0];
     })
     .catch(e => {
       console.log(e);
     });
+
+  return user;
 };
 
 export { createUser, getUser };

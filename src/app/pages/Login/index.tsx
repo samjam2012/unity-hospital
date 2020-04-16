@@ -11,7 +11,7 @@ export default function Login(props: Page) {
   const {
     isAuthenticated,
     loginWithRedirect,
-    user: { role }
+    user: { userType }
   }: Auth = useAuth();
 
   return (
