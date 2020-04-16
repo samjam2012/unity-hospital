@@ -1,27 +1,19 @@
 import React from "react";
 import styles from "./styles.scss";
 import { mergeClasses } from "../../utils";
-import { ButtonProps as Props } from "../../../interfaces/app/components";
+import { ButtonProps } from "../../../interfaces/app/component";
 import { Link } from "@reach/router";
 
-const Button = ({
-  children: buttonText,
-  className,
-  onClick,
-  options = {},
-  to = ""
-}: Props) => {
-  const { size = "medium" } = options;
-
+const Button = ({ text, className, onClick, to = "" }: ButtonProps) => {
   return (
     <Link
       onClick={() => {
         if (onClick) onClick();
       }}
       to={to}
-      className={mergeClasses([styles[size], className])}
+      className={mergeClasses([styles.button, className])}
     >
-      {buttonText}
+      {text}
     </Link>
   );
 };

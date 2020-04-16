@@ -1,19 +1,12 @@
 .button {
-  @extend .actionHover;
+  @include actionHover;
+
   background-color: $blue-strong;
   border-radius: 1rem;
   color: $pink-soft !important;
+  min-width: 5rem;
   opacity: 1;
+  padding: 0.4rem 0.75rem;
   text-align: center;
   text-transform: none;
-}
-
-.small {
-  @extend .button;
-
-  font-size: 0.75rem;
-  padding: 0.2rem 0.5rem;
-  width: 30%;
-
-  min-width: 3.75rem;
 }

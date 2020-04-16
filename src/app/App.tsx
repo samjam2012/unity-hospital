@@ -1,10 +1,11 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
-import { Redirect, Router, navigate } from "@reach/router";
+import { Router, navigate } from "@reach/router";
 import { useAuth } from "./hooks";
 import Auth from "../interfaces/auth";
-import { Login, Dashboard } from "./pages";
-import { Home, Experiment } from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Portal from "./pages/Portal";
+import Tools, { Home, Experiment } from "./pages/Tools";
 
 const App = () => {
   const { isAuthenticated, loading }: Auth = useAuth();
@@ -19,10 +20,14 @@ const App = () => {
     <Router>
       <Login path="login" />
 
-      <Dashboard path="/">
-        <Home path="*" />
+      <Portal path="*">
+        <Home path="/" />
+      </Portal>
+
+      <Tools path="tools">
+        <Home path="/" />
         <Experiment path="experiment" />
-      </Dashboard>
+      </Tools>
     </Router>
   );
 };

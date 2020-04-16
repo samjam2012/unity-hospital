@@ -1,4 +1,4 @@
-import User from "./user";
+import { Auth0User } from "./user";
 
 interface AuthService {
   loginWithRedirect: Function;
@@ -8,5 +8,5 @@ export default interface Auth extends AuthService {
   isAuthenticated: boolean;
   loading: boolean;
   logout: Function;
-  user: User;
+  user: Auth0User;
 }

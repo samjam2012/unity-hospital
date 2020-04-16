@@ -1,6 +1,6 @@
 import React from "react";
 import { Page } from "../../../../interfaces/app/pages";
-import { Button, Row } from "../../../../app/components";
+import { Button, Row } from "../../../components";
 import { useInput } from "../../../hooks";
 import styles from "./styles.scss";
 
@@ -25,7 +25,7 @@ export default function Experiment(props: Page) {
         <label>dependent variable</label>
         <input type="text" {...bindDV} />
       </Row>
-      <Button options={{ size: "small" }}>run</Button>
+      <Button text="run" />
     </form>
   );
 }

@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./styles.scss";
 import { mergeClasses } from "../../utils";
-import { HeaderProps as Props } from "../../../interfaces/app/components";
+import { HeaderProps as Props } from "../../../interfaces/app/component";
 import BoxShadow from "../_wrappers/boxShadow";
 
-const Header = ({ children: innerText, className, options = {} }: Props) => {
-  const { alignment = "center", platformType = "flat" } = options;
-
+const Header = ({
+  children: innerText,
+  className,
+  alignment = "center",
+  platformType = "flat"
+}: Props) => {
   return (
     <BoxShadow
       options={{ shadowDirection: "bottom" }}

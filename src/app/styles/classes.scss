@@ -8,13 +8,23 @@
   padding: 20px;
 }
 
-.actionHover {
-  box-shadow: map-get($box-shadow, "_light");
+@mixin actionHover {
+  box-shadow: none;
   transition: box-shadow 200ms;
+
+  &:hover {
+    box-shadow: shadow();
+  }
 
   &:active {
     box-shadow: none;
   }
+}
+
+@mixin box {
+  display: inline-flex;
+  flex-flow: column;
+  flex-grow: 1;
 }
 
 @mixin shadow {
