@@ -1,0 +1,16 @@
+.form {
+  .header {
+    font-size: 1.5rem;
+  }
+
+  display: flex;
+  flex-flow: column;
+  height: 10rem;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+
+  > input {
+    display: inline-flex;
+  }
+}

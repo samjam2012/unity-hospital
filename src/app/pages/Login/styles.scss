@@ -1,9 +1,10 @@
-.buttonContainer {
+.container {
+  margin: 2rem auto;
   width: 80%;
-  margin: auto;
+  text-align: center;
 }
 
-.wrapper {
-  @extend .absoluteCentered;
-  width: 80%;
+.buttonContainer {
+  display: flex;
+  justify-content: center;
 }

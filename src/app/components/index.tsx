@@ -1,6 +1,7 @@
 import Button from "./button";
-import Container from "./container";
 import Header from "./header";
+import Row from "./row";
 import Section from "./section";
+import SideNav from "./sideNav";
 
-export { Button, Container, Header, Section };
+export { Button, Header, Row, Section, SideNav };

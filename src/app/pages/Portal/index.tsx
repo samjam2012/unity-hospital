@@ -1,14 +1,15 @@
 import React from "react";
-import Page from "../../../interfaces/app/page";
+import { PageContainer } from "../../../interfaces/app/pages";
 import Doctor from "./doctor";
+import Patient from "./patient";
 import { useAuth } from "../../hooks";
 
-export default function Portal(props: Page) {
-  const {
-    user: { role }
-  } = useAuth();
-  console.log(role);
+const Portal = (props: PageContainer) => {
   const Portal = Doctor;
 
   return <Portal />;
-}
+};
+
+export default Portal;
+
+export { Doctor, Patient };

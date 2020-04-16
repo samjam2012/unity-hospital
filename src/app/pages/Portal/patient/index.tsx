@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./styles.scss";
-import { Container, Header, Section, Button } from "../../../components";
+import { Header, Section, Button } from "../../../components";
 import { mergeClasses } from "../../../utils";
-import Page from "../../../../interfaces/app/page";
+import { Page } from "../../../../interfaces/app/pages";
 
 export default function Doctor(props: Page) {
   return (
-    <Container options={{ padding: "0" }}>
+    <div style={{ padding: "0" }}>
       <Header options={{ alignment: "left", platformType: "flat" }}>
-        Hello Doctor Liu
+        Hello Sammy!
       </Header>
 
       <Section>
@@ -21,12 +21,9 @@ export default function Doctor(props: Page) {
             styles.buttonContainer
           ])}
         >
-          <Button to="" options={{ size: "small" }}>
-            Doctor
-          </Button>
-          <Button options={{ size: "small" }}>Patient</Button>
+          hello
         </div>
       </Section>
-    </Container>
+    </div>
   );
 }

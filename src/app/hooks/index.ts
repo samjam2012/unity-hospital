@@ -1,3 +1,4 @@
 import useAuth from "./useAuth";
+import useInput from "./useInput";
 
-export { useAuth };
+export { useAuth, useInput };

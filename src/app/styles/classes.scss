@@ -1,7 +1,48 @@
-.absoluteCentered {
+@import "./variables.scss";
+
+@mixin absoluteCentered {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
+}
+
+@mixin actionHover {
+  box-shadow: none;
+  transition: box-shadow 200ms;
+
+  &:hover {
+    box-shadow: shadow();
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+@mixin box {
+  display: inline-flex;
+  flex-flow: column;
+  flex-grow: 1;
+}
+
+@mixin shadow {
+  box-shadow: 0 0 5px #333;
+}
+
+@mixin shadow-top {
+  box-shadow: 0 -5px 5px -5px #333;
+}
+
+@mixin shadow-right {
+  box-shadow: 5px 0 5px -5px #333;
+}
+
+@mixin shadow-bottom {
+  box-shadow: 0 5px 5px -5px #333;
+}
+
+@mixin shadow-left {
+  box-shadow: -5px 0 5px -5px #333;
 }
