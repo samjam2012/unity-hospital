@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
 
-  font-size: small;
+  font-size: 0.75rem;
 }
 
-.box {
-  @include box;
+.container {
+  @include container;
+
+  height: 40rem;
 }

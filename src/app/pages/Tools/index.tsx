@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.scss";
 
 import { useAuth } from "../../hooks";
-import { Header, SideNav, Button } from "../../components";
+import { Header, SideNav, Box, Button } from "../../components";
 import { PageContainer } from "../../../interfaces/app/pages";
 import Home from "./home";
 import Experiment from "./experiment";
@@ -20,9 +20,10 @@ const Tools = ({ children: Page }: PageContainer) => {
         </div>
       </Header>
 
-      <div>
-        <SideNav baseUrl={"/tools"} pages={PAGES} />
-        <div className={styles.box}>{Page}</div>
+      <div className={styles.container}>
+        <SideNav baseUrl={"/tools"} pages={PAGES}>
+          {Page}
+        </SideNav>
       </div>
     </div>
   );
