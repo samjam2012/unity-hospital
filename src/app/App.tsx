@@ -5,7 +5,7 @@ import { useAuth } from "./hooks";
 import Auth from "../interfaces/auth";
 import Login from "./pages/Login";
 import Portal from "./pages/Portal";
-import Tools, { Home, Experiment } from "./pages/Tools";
+import Tools, { Report, Experiment } from "./pages/Tools";
 
 const App = () => {
   const { isAuthenticated, loading }: Auth = useAuth();
@@ -21,11 +21,11 @@ const App = () => {
       <Login path="login" />
 
       <Portal path="*">
-        <Home path="/" />
+        <Experiment path="/" />
       </Portal>
 
       <Tools path="tools">
-        <Home path="/" />
+        <Report path="/" />
         <Experiment path="experiment" />
       </Tools>
     </Router>

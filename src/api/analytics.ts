@@ -17,6 +17,10 @@ interface UserCreate {
   userType: "ADMIN" | "DOCTOR" | "PATIENT";
 }
 
+interface UserLogin extends UserCreate {
+  loginCount: number;
+}
+
 interface EventReq {
   eventType: EventType;
   eventDetails: any;
@@ -30,11 +34,12 @@ async function healthCheck() {
 
 async function fireEvent({ eventType, eventDetails }: EventReq) {
   const generateEventBody = () => {
+    const { id, userType, loginCount } = eventDetails;
     switch (eventType) {
       case "USER_CREATE":
-        const { id, userType } = eventDetails;
-
         return { userId: id, userType } as UserCreate;
+      case "LOGIN":
+        return { userId: id, userType, loginCount } as UserLogin;
       default:
         return null;
     }
@@ -61,4 +66,20 @@ async function fireEvent({ eventType, eventDetails }: EventReq) {
   }
 }
 
-export { healthCheck, fireEvent };
+async function getEventsInRange({ floorTime, eventType }: any) {
+  try {
+    if (!floorTime) {
+      floorTime = moment().subtract(7, "days").utc().format();
+    }
+    const { data: events } = await eventApi("/events/getRange", "POST", {
+      event_type: eventType,
+      floor_time: floorTime
+    });
+
+    return events;
+  } catch (error) {
+    return error;
+  }
+}
+
+export { healthCheck, fireEvent, getEventsInRange };
