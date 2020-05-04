@@ -15,11 +15,14 @@ export const normalizeUser = (rawUserObj: any) => {
       lastName
     };
   };
+
   const userObject = {};
   for (const key in rawUserObj) {
     if (key.endsWith("/role")) {
       userObject["userType"] = rawUserObj[key].toUpperCase();
       continue;
+    } else if (key.endsWith("/loginCount")) {
+      userObject["loginCount"] = rawUserObj[key];
     }
 
     switch (key) {
@@ -46,20 +49,24 @@ export const normalizeUser = (rawUserObj: any) => {
   const {
     authId,
     email,
-    emailVerified,
     firstName,
     lastName,
     userType,
+
+    emailVerified,
+    loginCount,
     updatedAt
   } = userObject as any;
 
   const normalizedUserObj: User = {
     authId,
     email,
-    emailVerified,
     firstName,
     lastName,
     userType,
+
+    emailVerified,
+    loginCount,
     updatedAt
   };
 

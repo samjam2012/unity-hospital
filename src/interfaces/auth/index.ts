@@ -4,10 +4,12 @@ interface AuthService {
 export interface User {
   authId: string;
   email: string;
-  emailVerified: boolean;
   firstName: string;
   lastName: string;
   userType: "DOCTOR" | "PATIENT" | "ADMIN";
+
+  emailVerified: boolean;
+  loginCount: number;
   updatedAt: string;
 }
 

@@ -40,7 +40,7 @@ const Auth0Provider = ({
         const rawAuth0User = await auth0FromHook.getUser();
 
         const auth0User = normalizeUser(rawAuth0User);
-        const { authId, userType } = auth0User;
+        const { authId, userType, loginCount } = auth0User;
 
         // Insert into DB if not already there
         // try {
@@ -51,15 +51,18 @@ const Auth0Provider = ({
           try {
             await healthCheck();
           } catch (error) {
-            console.log("\n\nError\n\n" + error);
+            console.log("\n\nError");
             console.log("\n------------\n\n");
+            console.dir(error);
+            console.log("\n\n------------\n\n");
           }
         }
+
         const user = await getUser(authId);
-        await fireEvent({
-          eventType: "USER_CREATE",
-          eventDetails: { ...user, userType }
-        });
+        // await fireEvent({
+        //   eventType: "LOGIN",
+        //   eventDetails: { ...user, userType, loginCount }
+        // });
 
         // }
 
