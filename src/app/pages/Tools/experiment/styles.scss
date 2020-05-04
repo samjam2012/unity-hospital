@@ -1,16 +1,73 @@
-.form {
-  .header {
-    font-size: 1.5rem;
-  }
+.loader {
+  @include absoluteCentered(0);
 
+  margin-top: 5rem;
+}
+
+.header {
+  @include header-static-top-left;
+
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: rgb(237, 237, 237);
+  padding: 0.5rem 2rem;
+  box-shadow: 5px 5px 15px -10px #333;
+}
+
+.form {
+  div {
+    width: 100%;
+  }
   display: flex;
-  flex-flow: column;
   height: 10rem;
   justify-content: space-between;
-  padding: 1rem;
-  width: 100%;
+  padding: 1rem 0;
 
-  > input {
-    display: inline-flex;
+  .baseContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
   }
+  .inputContainer {
+    @extend .baseContainer;
+
+    flex: 4;
+
+    > div {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    label {
+      flex: 2;
+    }
+    .input {
+      input {
+        width: 100%;
+      }
+      flex: 1;
+      display: inline-flex;
+    }
+  }
+
+  .controllerContainer {
+    @extend .baseContainer;
+    flex: 1;
+
+    .button {
+      display: block;
+      margin: auto;
+      border-radius: 3rem;
+      width: 6rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+.table {
+  overflow-y: auto;
+  height: 20rem;
+  border: 1px solid silver;
 }

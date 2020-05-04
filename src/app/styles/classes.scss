@@ -1,7 +1,10 @@
 @import "./variables.scss";
 
 @mixin actionHover {
+  cursor: pointer;
   box-shadow: none;
+  border: none;
+  outline: none;
   transition: box-shadow 200ms;
 
   &:hover {
@@ -18,11 +21,18 @@
   width: 100%;
 }
 
+@mixin header-static-top-left {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 @mixin box {
   display: inline-flex;
   flex-grow: 1;
   margin: 1rem;
-  padding: 2rem;
+  padding: 3rem;
 
   border-radius: 1rem;
   background: white;

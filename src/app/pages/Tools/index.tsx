@@ -2,19 +2,19 @@ import React from "react";
 import styles from "./styles.scss";
 
 import { useAuth } from "../../hooks";
-import { Header, SideNav, Box, Button } from "../../components";
+import { Header, SideNav, Button, Container } from "../../components";
 import { PageContainer } from "../../../interfaces/app/pages";
-import Home from "./home";
+import Report from "./report";
 import Experiment from "./experiment";
 
 const Tools = ({ children: Page }: PageContainer) => {
   const { logout } = useAuth();
-  const PAGES = ["Home", "Experiment", "History", "Utils"];
+  const PAGES = ["Home", "Experiment"];
 
   return (
-    <div>
+    <Container>
       <Header alignment="left" platformType="flat">
-        <div>Tools</div>
+        <div>Unity Data Solutions</div>
         <div className={styles.buttonContainer}>
           <Button onClick={() => logout({})} text="Log Out" />
         </div>
@@ -25,10 +25,10 @@ const Tools = ({ children: Page }: PageContainer) => {
           {Page}
         </SideNav>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Tools;
 
-export { Home, Experiment };
+export { Report, Experiment };

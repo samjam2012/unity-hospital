@@ -5,16 +5,27 @@ import { ButtonProps } from "../../../interfaces/app/component";
 import { Link } from "@reach/router";
 
 const Button = ({ text, className, onClick, to = "" }: ButtonProps) => {
-  return (
+  const classes = mergeClasses([styles.button, className]);
+  return to ? (
     <Link
       onClick={() => {
         if (onClick) onClick();
       }}
       to={to}
-      className={mergeClasses([styles.button, className])}
+      className={classes}
     >
       {text}
     </Link>
+  ) : (
+    <button
+      onClick={() => {
+        if (onClick) onClick();
+      }}
+      className={classes}
+      type="submit"
+    >
+      {text}
+    </button>
   );
 };
 

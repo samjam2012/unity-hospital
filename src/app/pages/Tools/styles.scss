@@ -8,5 +8,10 @@
 .container {
   @include container;
 
+  p {
+    display: block;
+    margin: 0;
+  }
+
   height: 40rem;
 }

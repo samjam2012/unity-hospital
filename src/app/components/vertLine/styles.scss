@@ -1,0 +1,12 @@
+.container {
+  width: 1px !important;
+  margin: 0 1rem;
+  position: relative;
+
+  .verticalLine {
+    @include absoluteCentered(0);
+    position: absolute;
+    height: 100%;
+    border-left: 1px solid silver;
+  }
+}

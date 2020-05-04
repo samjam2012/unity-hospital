@@ -1,4 +1,9 @@
 .box {
   @include box;
+
+  //Below fixes issue of Router wrapping a component and not passing width style down?? pretty sure
+  > div {
+    width: 100%;
+  }
   position: relative;
 }
