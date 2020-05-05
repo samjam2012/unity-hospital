@@ -3,10 +3,9 @@ import { Page } from "../../../../interfaces/app/pages";
 import { Button, H, Row, Container, VLine } from "../../../components";
 import { useInput } from "../../../hooks";
 import styles from "./styles.scss";
-import { getEventsInRange } from "../../../../api";
+import { getEventsInRange, getUsageStats } from "../../../../api";
 import HashLoader from "react-spinners/HashLoader";
 import {
-  FormHelperText,
   Table,
   TableHead,
   TableBody,
@@ -19,64 +18,87 @@ import {
 } from "@material-ui/core";
 
 export default function Experiment(props: Page) {
+  // Form field cache
   const [eventType, setEventType] = useState(null);
-  const [events, setEvents] = useState(null);
-  const [dailyUsage, setDailyUsage] = useState(null);
+  const [proc, setProc] = useState("");
 
+  // Api data
+  const [events, setEvents] = useState(null);
+  const [usage, setUsage] = useState(null);
+
+  // State control
   const [isLoading, toggleLoader] = useState(false);
 
-  const {
-    value: valueEventType,
-    bind: bindEventType,
-    reset: resetEventType
-  } = useInput("");
-  const { value: valueUsage, bind: bindUsage, reset: resetUsage } = useInput(
-    ""
-  );
-
+  // useEffect to connect to unity-data-solution apis
   useEffect(() => {
     const getEvents = async () => {
       setEvents(null);
       toggleLoader(true);
       const events = await getEventsInRange({ eventType });
+
       setEvents(events);
     };
-    const getUsage = async () => {};
+    const getUsage = async () => {
+      setUsage(null);
+      toggleLoader(true);
+      const usageStats = await getUsageStats();
 
+      setUsage(usageStats);
+    };
+
+    // Check for eventType to call api
     if (eventType) {
       getEvents();
       setEventType(null);
     }
 
-    if (dailyUsage) {
-      getUsage();
-      setDailyUsage(null);
+    // List of procedures available
+    switch (proc) {
+      case "dailyUsage":
+        getUsage();
+        break;
+      default:
+        break;
     }
 
     //eslint-disable-next-line
-  }, [dailyUsage, eventType]);
+  }, [eventType, proc]);
 
+  // Resets cached inputs when data is retrieved
   useEffect(() => {
     if (isLoading && events) {
       setEventType(null);
       toggleLoader(false);
     }
-  }, [isLoading, events]);
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    if (valueEventType) {
-      setEventType(valueEventType);
-    } else if (valueUsage) {
-      setDailyUsage(valueUsage);
+    if (isLoading && usage) {
+      setProc("");
+      toggleLoader(false);
     }
+  }, [isLoading, events, usage]);
+
+  // Form and Input controls
+  const {
+    value: eventInput,
+    bind: bindEventType,
+    reset: resetEventType
+  } = useInput("");
+  const { value: procInput, bind: bindProc, reset: resetProc } = useInput("");
+  const resetForm = () => {
     resetEventType();
-    resetUsage();
+    resetProc();
   };
   const wipeData = () => {
     setEvents(null);
-    setDailyUsage(null);
+    setProc("");
+  };
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (eventInput) {
+      setEventType(eventInput);
+    } else if (procInput) {
+      setProc(procInput);
+    }
+    resetForm();
   };
 
   const Loader = () => {
@@ -84,7 +106,8 @@ export default function Experiment(props: Page) {
       <div className={styles.loader}>{<HashLoader loading={isLoading} />}</div>
     );
   };
-  const renderTable = (events: any[]) => {
+
+  const renderEventTable = (events: any[]) => {
     const init = events[0];
     if (!init) return;
     const headers = Object.keys(init);
@@ -113,7 +136,6 @@ export default function Experiment(props: Page) {
       </div>
     );
   };
-
   return (
     <Container>
       <H className={styles.header} size={2} text={"Experiments"} />
@@ -124,7 +146,7 @@ export default function Experiment(props: Page) {
             <div className={styles.input}>
               <FormControl>
                 <Select
-                  value={valueUsage}
+                  value={eventType}
                   variant="outlined"
                   labelId="input"
                   id="select"
@@ -141,32 +163,34 @@ export default function Experiment(props: Page) {
             </div>
           </Row>
           <Row>
-            <InputLabel id="input">Functions</InputLabel>
+            <InputLabel id="input">Procedures</InputLabel>
             <div className={styles.input}>
-              <Select
-                value={valueUsage}
-                variant="outlined"
-                labelId="input"
-                id="select"
-                displayEmpty
-                {...bindUsage}
-              >
-                <MenuItem value="" disabled>
-                  <em>Function</em>
-                </MenuItem>
-                <MenuItem value="dailyUsage">dailyUsage</MenuItem>
-                <MenuItem value="trend">trend</MenuItem>
-              </Select>
+              <FormControl>
+                <Select
+                  value={proc}
+                  variant="outlined"
+                  labelId="input"
+                  id="select"
+                  displayEmpty
+                  {...bindProc}
+                >
+                  <MenuItem value="" disabled>
+                    <em>Function</em>
+                  </MenuItem>
+                  <MenuItem value="dailyUsage">dailyUsage</MenuItem>
+                  <MenuItem value="trend">trend</MenuItem>
+                </Select>
+              </FormControl>
             </div>
           </Row>
         </div>
         <VLine />
         <div className={styles.controllerContainer}>
-          <Button className={styles.button} text="Run" />
-          <Button onClick={wipeData} className={styles.button} text="clear" />
+          <Button className={styles.submit} text="Run" />
+          <Button onClick={wipeData} className={styles.clear} text="clear" />
         </div>
       </form>
-      {isLoading ? <Loader /> : renderTable(events || [])}
+      {isLoading ? <Loader /> : renderEventTable(events || [])}
     </Container>
   );
 }

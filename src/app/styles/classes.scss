@@ -33,9 +33,12 @@
   flex-grow: 1;
   margin: 1rem;
   padding: 3rem;
-
   border-radius: 1rem;
   background: white;
+
+  @media screen {
+    padding: 3rem 5%;
+  }
 }
 
 @mixin shadow {

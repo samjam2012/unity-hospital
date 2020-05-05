@@ -71,7 +71,7 @@ async function getEventsInRange({ floorTime, eventType }: any) {
     if (!floorTime) {
       floorTime = moment().subtract(7, "days").utc().format();
     }
-    const { data: events } = await eventApi("/events/getRange", "POST", {
+    const { data: events } = await eventApi("/events/range", "POST", {
       event_type: eventType,
       floor_time: floorTime
     });
@@ -82,4 +82,19 @@ async function getEventsInRange({ floorTime, eventType }: any) {
   }
 }
 
-export { healthCheck, fireEvent, getEventsInRange };
+async function getUsageStats() {
+  try {
+    const { data: usage } = await eventApi("/events/usage");
+
+    console.log("\n\nUsage");
+    console.log("\n------------\n\n");
+    console.dir(usage);
+    console.log("\n\n------------\n\n");
+
+    return usage;
+  } catch (error) {
+    return error;
+  }
+}
+
+export { healthCheck, fireEvent, getEventsInRange, getUsageStats };

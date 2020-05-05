@@ -1,10 +1,11 @@
 .button {
   @include actionHover;
 
+  font-size: 0.8rem;
   font-weight: bold;
   background-color: $blue-strong;
   border-radius: 1rem;
-  color: $pink-soft !important;
+  color: white !important;
   min-width: 5rem;
   padding: 0.4rem 0.75rem;
   text-align: center;

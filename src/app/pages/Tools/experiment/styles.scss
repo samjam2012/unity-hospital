@@ -31,7 +31,7 @@
   .inputContainer {
     @extend .baseContainer;
 
-    flex: 4;
+    flex: 3;
 
     > div {
       margin-bottom: 1rem;
@@ -56,12 +56,15 @@
     @extend .baseContainer;
     flex: 1;
 
-    .button {
-      display: block;
-      margin: auto;
+    .submit {
       border-radius: 3rem;
+      height: 3rem;
+    }
+
+    .clear {
+      margin: 0 auto;
       width: 6rem;
-      height: 1.5rem;
+      background-color: rgb(99, 2, 255);
     }
   }
 }
