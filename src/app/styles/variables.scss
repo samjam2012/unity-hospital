@@ -2,6 +2,7 @@ $header-size: (
   _default: 2rem
 );
 
+$baby-blue-light: rgb(211, 245, 255);
 $baby-blue: rgb(152, 233, 255);
 $light-blue: rgba(114, 224, 255, 0.673);
 $gray-light: rgb(106, 106, 106);
@@ -9,7 +10,7 @@ $gray: rgb(72, 72, 72);
 $gray-dark: rgb(44, 44, 44);
 $light-teal: rgb(130, 255, 232);
 $pink: rgb(255, 231, 251);
-$purple: rgb(55, 10, 106);
+$purple-dark: rgb(57, 39, 99);
 $salmon: rgba(255, 179, 167, 0.6);
 $pink-soft: rgb(255, 231, 251);
 $blue-strong: rgb(38, 139, 255);
@@ -22,7 +23,7 @@ $color: (
   _gray-light: rgb(106, 106, 106),
   _light-teal: rgb(130, 255, 232),
   _pink: rgb(255, 231, 251),
-  _purple: rgb(55, 10, 106)
+  _purple: rgb(162, 134, 194)
 );
 
 $pascal: (

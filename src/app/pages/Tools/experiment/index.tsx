@@ -5,6 +5,7 @@ import { useInput } from "../../../hooks";
 import styles from "./styles.scss";
 import { getEventsInRange, getUsageStats } from "../../../../api";
 import HashLoader from "react-spinners/HashLoader";
+import _ from "lodash";
 import {
   Table,
   TableHead,
@@ -17,14 +18,19 @@ import {
   FormControl
 } from "@material-ui/core";
 
+interface Usage {
+  activityData: any;
+  userData: any;
+}
+
 export default function Experiment(props: Page) {
   // Form field cache
-  const [eventType, setEventType] = useState(null);
+  const [eventType, setEventType] = useState("");
   const [proc, setProc] = useState("");
 
   // Api data
-  const [events, setEvents] = useState(null);
-  const [usage, setUsage] = useState(null);
+  const [events, setEvents] = useState([]);
+  const [usage, setUsage] = useState({});
 
   // State control
   const [isLoading, toggleLoader] = useState(false);
@@ -32,14 +38,14 @@ export default function Experiment(props: Page) {
   // useEffect to connect to unity-data-solution apis
   useEffect(() => {
     const getEvents = async () => {
-      setEvents(null);
+      setEvents([]);
       toggleLoader(true);
       const events = await getEventsInRange({ eventType });
 
       setEvents(events);
     };
     const getUsage = async () => {
-      setUsage(null);
+      setUsage({});
       toggleLoader(true);
       const usageStats = await getUsageStats();
 
@@ -49,7 +55,7 @@ export default function Experiment(props: Page) {
     // Check for eventType to call api
     if (eventType) {
       getEvents();
-      setEventType(null);
+      setEventType("");
     }
 
     // List of procedures available
@@ -66,11 +72,11 @@ export default function Experiment(props: Page) {
 
   // Resets cached inputs when data is retrieved
   useEffect(() => {
-    if (isLoading && events) {
-      setEventType(null);
+    if (isLoading && events.length) {
+      setEventType("");
       toggleLoader(false);
     }
-    if (isLoading && usage) {
+    if (isLoading && !_.isEmpty(usage)) {
       setProc("");
       toggleLoader(false);
     }
@@ -88,8 +94,8 @@ export default function Experiment(props: Page) {
     resetProc();
   };
   const wipeData = () => {
-    setEvents(null);
-    setProc("");
+    setEvents([]);
+    setUsage({});
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -106,11 +112,17 @@ export default function Experiment(props: Page) {
       <div className={styles.loader}>{<HashLoader loading={isLoading} />}</div>
     );
   };
+  const renderData = () => {
+    if (events.length) {
+      return renderEventTable(events);
+    } else if (!_.isEmpty(usage)) {
+      const userObj: Usage = usage as Usage;
 
+      return renderDataDisplay(userObj);
+    }
+  };
   const renderEventTable = (events: any[]) => {
-    const init = events[0];
-    if (!init) return;
-    const headers = Object.keys(init);
+    const headers = Object.keys(events[0]);
     return (
       <div className={styles.table}>
         <Table>
@@ -136,6 +148,41 @@ export default function Experiment(props: Page) {
       </div>
     );
   };
+  const renderDataDisplay = ({ activityData, userData }: Usage) => {
+    return (
+      <div className={styles.dataTable}>
+        <div>
+          <div className={styles.head}>Activity</div>
+          <div className={styles.data}>
+            {activityData.map(dataLine => {
+              const [key, value] = dataLine.split(" - ");
+              return (
+                <div>
+                  <div>{key}</div>
+                  <div>{value}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div>
+          <div className={styles.head}>User Creation Data</div>
+          <div className={styles.data}>
+            {userData.map(dataLine => {
+              const [key, value] = dataLine.split(" - ");
+              return (
+                <div>
+                  <div>{key}</div>
+                  <div>{value}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <Container>
       <H className={styles.header} size={2} text={"Experiments"} />
@@ -146,6 +193,7 @@ export default function Experiment(props: Page) {
             <div className={styles.input}>
               <FormControl>
                 <Select
+                  className={styles.select}
                   value={eventType}
                   variant="outlined"
                   labelId="input"
@@ -167,6 +215,7 @@ export default function Experiment(props: Page) {
             <div className={styles.input}>
               <FormControl>
                 <Select
+                  className={styles.select}
                   value={proc}
                   variant="outlined"
                   labelId="input"
@@ -190,7 +239,7 @@ export default function Experiment(props: Page) {
           <Button onClick={wipeData} className={styles.clear} text="clear" />
         </div>
       </form>
-      {isLoading ? <Loader /> : renderEventTable(events || [])}
+      {isLoading ? <Loader /> : renderData()}
     </Container>
   );
 }

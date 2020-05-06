@@ -18,15 +18,24 @@ $nav-width: 10rem;
       flex-direction: column;
 
       .page {
-        box-shadow: shadowBottom();
+        box-shadow: shadowBottom(), shadowRight();
         flex: 1;
+
+        &:first-child {
+          border-top-right-radius: 1rem;
+          box-shadow: shadowTop(), shadowRight();
+          flex: 1;
+        }
+        &:last-child {
+          border-bottom-right-radius: 1rem;
+        }
         // border-right: 1px solid $gray-light;
         padding: 0.25rem 1.5rem;
 
-        transition: box-shadow 200ms;
+        transition: background-color 200ms;
 
         &:hover {
-          box-shadow: none;
+          background-color: rgb(232, 232, 232);
         }
       }
     }
