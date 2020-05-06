@@ -14,25 +14,29 @@ code {
     monospace;
 }
 
-.base {
+.app {
   display: flex;
-  background-color: pullColor("primary");
+  max-width: 1366px;
   height: 100vh;
-}
-
-html {
-  @extend .base;
-}
-
-.App {
-  text-align: center;
-}
-
-* {
-  color: pullColor("text");
-  text-shadow: map-get($shadow, "_text") !important;
+  margin: auto;
   box-sizing: border-box;
+
+  background-color: pullColor("primary");
+}
+
+.text {
+  color: pullColor("text");
+  text-shadow: pullShadow("soft") !important;
+
   &:hover {
     text-decoration: none !important;
   }
+}
+
+html {
+  @extend .app;
+}
+
+* {
+  @extend .text;
 }

@@ -2,32 +2,33 @@ import React from "react";
 import styles from "./styles.scss";
 
 import { useAuth } from "../../hooks";
-import { Header, SideNav, Button } from "../../components";
+import { Header, SideNav, Button, Container } from "../../components";
 import { PageContainer } from "../../../interfaces/app/pages";
-import Home from "./home";
+import Report from "./report";
 import Experiment from "./experiment";
 
 const Tools = ({ children: Page }: PageContainer) => {
   const { logout } = useAuth();
-  const PAGES = ["Home", "Experiment", "History", "Utils"];
+  const PAGES = ["Home", "Experiment"];
 
   return (
-    <div>
+    <Container>
       <Header alignment="left" platformType="flat">
-        <div>Tools</div>
+        <div>Unity Data Solutions</div>
         <div className={styles.buttonContainer}>
           <Button onClick={() => logout({})} text="Log Out" />
         </div>
       </Header>
 
-      <div>
-        <SideNav baseUrl={"/tools"} pages={PAGES} />
-        <div className={styles.box}>{Page}</div>
+      <div className={styles.container}>
+        <SideNav baseUrl={"/tools"} pages={PAGES}>
+          {Page}
+        </SideNav>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Tools;
 
-export { Home, Experiment };
+export { Report, Experiment };

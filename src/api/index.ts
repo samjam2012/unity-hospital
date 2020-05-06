@@ -1,9 +1,16 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
-const baseUrl = "http://localhost:8090";
+export * from "./users";
+export * from "./analytics";
+const EVENT_URL = "http://localhost:4433";
+const USER_URL = "http://localhost:8090";
 
-const buildReqOptions = (path: string, method: "GET" | "POST", data?: any) => {
-  return {
+const createApi = (baseUrl: string) => async (
+  path: string,
+  method: "GET" | "POST" | "PUT" = "GET",
+  data?: any
+) => {
+  const options = {
     url: `${baseUrl}${path}`,
     method,
     headers: {
@@ -12,29 +19,18 @@ const buildReqOptions = (path: string, method: "GET" | "POST", data?: any) => {
     },
     data
   };
-};
 
-const createUser = async user => {
-  const options = buildReqOptions("/users", "POST", user);
-
-  axios(options).then(response => {
-    console.log(response);
-  });
-};
-
-const getUser = async authId => {
-  const options = buildReqOptions(`/users/${authId}`, "GET");
-
-  let user;
+  let res: any;
   await axios(options)
-    .then(({ data: users }) => {
-      user = users[0];
+    .then(response => {
+      res = response;
     })
     .catch(e => {
-      console.log(e);
+      throw e;
     });
 
-  return user;
+  return res as AxiosResponse;
 };
 
-export { createUser, getUser };
+export const eventApi = createApi(EVENT_URL);
+export const userApi = createApi(USER_URL);
