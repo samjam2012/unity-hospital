@@ -12,6 +12,7 @@ export interface ButtonProps extends DefaultProps {
   onClick?: Function;
   text: string;
   to?: string;
+  type?: "primary" | "secondary" | "tertiary";
 }
 
 export interface BoxShadowProps extends ShadowProps {

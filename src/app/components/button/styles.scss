@@ -3,10 +3,24 @@
 
   font-size: 0.8rem;
   font-weight: bold;
-  background-color: $blue-strong;
   border-radius: 1rem;
   color: white !important;
   min-width: 5rem;
   padding: 0.4rem 0.75rem;
   text-align: center;
+}
+
+.primary {
+  @extend .button;
+  background-color: $blue-strong;
+}
+
+.secondary {
+  @extend .button;
+  background-color: $purple-dark;
+}
+
+.tertiary {
+  @extend .button;
+  background-color: $salmon;
 }

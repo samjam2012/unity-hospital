@@ -12,15 +12,15 @@ const Tools = ({ children: Page }: PageContainer) => {
   const PAGES = ["Home", "Experiment"];
 
   return (
-    <Container>
+    <Container className={styles.tools}>
       <Header alignment="left" platformType="flat">
         <div>Unity Data Solutions</div>
         <div className={styles.buttonContainer}>
-          <Button onClick={() => logout({})} text="Log Out" />
+          <Button type="secondary" onClick={() => logout({})} text="Log Out" />
         </div>
       </Header>
 
-      <div className={styles.container}>
+      <div className={styles.contentContainer}>
         <SideNav baseUrl={"/tools"} pages={PAGES}>
           {Page}
         </SideNav>

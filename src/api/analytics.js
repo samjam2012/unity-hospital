@@ -104,7 +104,7 @@ async function getUsageStats() {
     ];
     const userData = [
       `Variety of User Types - ${Object.keys(userTypeMap).join(", ")}`,
-      `Most Common User Type - ${mostCommonUserType}`
+      `User Type Mode - ${mostCommonUserType}`
     ];
 
     return { activityData, userData };

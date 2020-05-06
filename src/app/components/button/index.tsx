@@ -4,8 +4,14 @@ import { mergeClasses } from "../../utils";
 import { ButtonProps } from "../../../interfaces/app/component";
 import { Link } from "@reach/router";
 
-const Button = ({ text, className, onClick, to = "" }: ButtonProps) => {
-  const classes = mergeClasses([styles.button, className]);
+const Button = ({
+  className,
+  onClick,
+  to = "",
+  text,
+  type = "primary"
+}: ButtonProps) => {
+  const classes = mergeClasses([styles[type], className]);
   return to ? (
     <Link
       onClick={() => {

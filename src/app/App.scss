@@ -6,7 +6,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  // make all Route containers fill webpage
   width: 100%;
+  > div {
+    height: 100%;
+    > div {
+      height: 100%;
+    }
+  }
 }
 
 code {
@@ -18,10 +25,9 @@ code {
   display: flex;
   max-width: 1366px;
   height: 100vh;
+
   margin: auto;
   box-sizing: border-box;
-
-  background-color: pullColor("primary");
 }
 
 .text {

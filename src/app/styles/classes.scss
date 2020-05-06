@@ -36,6 +36,8 @@
   border-radius: 1rem;
   background: white;
 
+  @include shadow;
+
   @media screen {
     padding: 3rem 5%;
   }
