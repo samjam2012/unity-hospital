@@ -1,7 +1,12 @@
-.container {
-  margin: 2rem auto;
-  width: 80%;
-  text-align: center;
+.login {
+  background-color: pullHospitalBackground("primary");
+  position: relative;
+  .innerContainer {
+    display: flex;
+    flex-flow: column;
+    margin: 2rem auto;
+    text-align: center;
+  }
 }
 
 .buttonContainer {

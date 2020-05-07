@@ -7,8 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   // make all Route containers fill webpage
-  width: 100%;
-  > div {
+  width: 1366px;
+  margin: 0 auto;
+  box-shadow: shadowLeft();
+
+  > div:first-child {
     height: 100%;
     > div {
       height: 100%;
@@ -23,11 +26,20 @@ code {
 
 .app {
   display: flex;
-  max-width: 1366px;
+  width: 100%;
   height: 100vh;
 
   margin: auto;
   box-sizing: border-box;
+}
+.loader {
+  background-color: pullHospitalBackground("primary");
+
+  > div:first-child {
+    @include absoluteCentered(0);
+
+    top: 40%;
+  }
 }
 
 .text {
@@ -41,6 +53,7 @@ code {
 
 html {
   @extend .app;
+  background: rgb(198, 248, 255);
 }
 
 * {

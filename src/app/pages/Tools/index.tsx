@@ -16,7 +16,7 @@ const Tools = ({ children: Page }: PageContainer) => {
       <Header alignment="left" platformType="flat">
         <div>Unity Data Solutions</div>
         <div className={styles.buttonContainer}>
-          <Button type="secondary" onClick={() => logout({})} text="Log Out" />
+          <Button type="submit" onClick={() => logout({})} text="Log Out" />
         </div>
       </Header>
 

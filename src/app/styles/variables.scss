@@ -4,16 +4,19 @@ $header-size: (
 
 $baby-blue-light: rgb(211, 245, 255);
 $baby-blue: rgb(152, 233, 255);
+$blue-navy: rgb(18, 100, 123);
 $light-blue: rgba(114, 224, 255, 0.673);
 $gray-light: rgb(106, 106, 106);
 $gray: rgb(72, 72, 72);
 $gray-dark: rgb(44, 44, 44);
-$light-teal: rgb(130, 255, 232);
+$light-teal: rgba(85, 193, 173, 0.584);
+$teal-medium: rgba(109, 162, 152, 0.584);
 $pink: rgb(255, 231, 251);
 $purple-dark: rgb(57, 39, 99);
 $salmon: rgba(255, 160, 138, 0.721);
+$blue-medium: rgb(37, 92, 152);
 $pink-soft: rgb(255, 231, 251);
-$blue-strong: rgb(38, 139, 255);
+$purple-medium: rgb(78, 47, 170);
 
 $color: (
   text: $gray-dark !important
@@ -26,7 +29,7 @@ $tools: (
 
 $hospital: (
   primary: $light-teal,
-  secondary: $blue-strong
+  secondary: $blue-navy
 );
 
 $pascal: (

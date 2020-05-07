@@ -15,17 +15,18 @@ export default function Doctor(props: Page) {
   return (
     <Container>
       <Header alignment="left" platformType="flat">
-        <div>Hello Dr. Jamal</div>
+        <div>Hello Sam!</div>
         <div className={styles.buttonContainer}>
-          {hasToolAccess && <Button type="tertiary" to="/tools" text="Tools" />}
-          <Button onClick={() => logout({})} text="Log Out" />
+          {hasToolAccess && (
+            <Button type="button" subType="tertiary" to="/tools" text="Tools" />
+          )}
+          <Button type="submit" onClick={() => logout({})} text="Log Out" />
         </div>
       </Header>
 
-      <SideNav
-        baseUrl={"/"}
-        pages={["home", "patients", "appointments", "dash"]}
-      />
+      <SideNav baseUrl={"/"} pages={["Home", "Patients", "Appointments"]}>
+        <div className={styles.welcome}>{"Welcome to Unity Hospital"}</div>
+      </SideNav>
     </Container>
   );
 }

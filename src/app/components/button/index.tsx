@@ -9,9 +9,10 @@ const Button = ({
   onClick,
   to = "",
   text,
-  type = "primary"
+  type = "button",
+  subType = "primary"
 }: ButtonProps) => {
-  const classes = mergeClasses([styles[type], className]);
+  const classes = mergeClasses([styles[type], styles[subType], className]);
   return to ? (
     <Link
       onClick={() => {
@@ -28,7 +29,7 @@ const Button = ({
         if (onClick) onClick();
       }}
       className={classes}
-      type="submit"
+      type={type}
     >
       {text}
     </button>
