@@ -231,7 +231,6 @@ export default function Experiment(props: Page) {
                     <em>Function</em>
                   </MenuItem>
                   <MenuItem value="dailyUsage">dailyUsage</MenuItem>
-                  <MenuItem value="trend">trend</MenuItem>
                 </Select>
               </FormControl>
             </div>

@@ -1,16 +1,4 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  // make all Route containers fill webpage
-  width: 1366px;
-  margin: 0 auto;
-  box-shadow: shadowLeft();
-
+.routerComponentFillParent {
   > div:first-child {
     height: 100%;
     > div {
@@ -18,19 +6,27 @@ body {
     }
   }
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.appSize {
+  width: 1366px;
+  margin: 0 auto;
+  box-shadow: shadowLeft(), shadowRight();
 }
-
-.app {
+.site {
   display: flex;
-  width: 100%;
   height: 100vh;
-
+  width: 100%;
   margin: auto;
   box-sizing: border-box;
+
+  background: rgb(198, 248, 255);
+}
+.text {
+  color: pullColor("text");
+  text-shadow: pullShadow("soft") !important;
+
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 .loader {
   background-color: pullHospitalBackground("primary");
@@ -42,20 +38,25 @@ code {
   }
 }
 
-.text {
-  color: pullColor("text");
-  text-shadow: pullShadow("soft") !important;
-
-  &:hover {
-    text-decoration: none !important;
-  }
-}
-
-html {
-  @extend .app;
-  background: rgb(198, 248, 255);
-}
-
 * {
   @extend .text;
+}
+html {
+  @extend .site;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @extend .appSize;
+
+  // make all Route containers fill webpage
+  @extend .routerComponentFillParent;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
