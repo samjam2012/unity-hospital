@@ -29,6 +29,7 @@
     flex-flow: column;
     justify-content: space-around;
   }
+
   .inputContainer {
     @extend .baseContainer;
 
@@ -42,7 +43,7 @@
       }
     }
     label {
-      flex: 2;
+      flex: 1;
     }
     .select {
       border-radius: 0.75rem;
@@ -63,7 +64,7 @@
     @extend .baseContainer;
     flex: 1;
 
-    .submit {
+    .submitButton {
       border-radius: 3rem;
       height: 3rem;
     }
@@ -108,6 +109,10 @@
         margin-top: 2rem;
         display: flex;
         justify-content: space-between;
+
+        > div:first-child {
+          font-weight: bold;
+        }
       }
     }
   }

@@ -4,8 +4,15 @@ import { mergeClasses } from "../../utils";
 import { ButtonProps } from "../../../interfaces/app/component";
 import { Link } from "@reach/router";
 
-const Button = ({ text, className, onClick, to = "" }: ButtonProps) => {
-  const classes = mergeClasses([styles.button, className]);
+const Button = ({
+  className,
+  onClick,
+  to = "",
+  text,
+  type = "button",
+  subType = "primary"
+}: ButtonProps) => {
+  const classes = mergeClasses([styles[type], styles[subType], className]);
   return to ? (
     <Link
       onClick={() => {
@@ -22,7 +29,7 @@ const Button = ({ text, className, onClick, to = "" }: ButtonProps) => {
         if (onClick) onClick();
       }}
       className={classes}
-      type="submit"
+      type={type}
     >
       {text}
     </button>

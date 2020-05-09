@@ -6,12 +6,14 @@ import Auth from "../interfaces/auth";
 import Login from "./pages/Login";
 import Portal from "./pages/Portal";
 import Tools, { Report, Experiment } from "./pages/Tools";
+import HashLoader from "react-spinners/HashLoader";
+import styles from "./App.scss";
 
 const App = () => {
   const { isAuthenticated, loading }: Auth = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className={styles.loader}>{<HashLoader loading={true} />}</div>;
   }
 
   if (!isAuthenticated) navigate("/login");

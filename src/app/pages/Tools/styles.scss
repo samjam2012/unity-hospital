@@ -1,3 +1,7 @@
+.tools {
+  background-color: pullToolsBackground("primary");
+}
+
 .buttonContainer {
   display: flex;
   align-items: center;
@@ -5,7 +9,7 @@
   font-size: 0.75rem;
 }
 
-.container {
+.contentContainer {
   @include container;
 
   p {

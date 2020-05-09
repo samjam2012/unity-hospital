@@ -94,6 +94,10 @@ export default function Experiment(props: Page) {
     resetProc();
   };
   const wipeData = () => {
+    console.log("\n\nHiiiii");
+    console.log("\n------------\n\n");
+    console.log("\t" + "hi");
+    console.log("\n\n------------\n\n");
     setEvents([]);
     setUsage({});
   };
@@ -227,7 +231,6 @@ export default function Experiment(props: Page) {
                     <em>Function</em>
                   </MenuItem>
                   <MenuItem value="dailyUsage">dailyUsage</MenuItem>
-                  <MenuItem value="trend">trend</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -235,8 +238,13 @@ export default function Experiment(props: Page) {
         </div>
         <VLine />
         <div className={styles.controllerContainer}>
-          <Button className={styles.submit} text="Run" />
-          <Button onClick={wipeData} className={styles.clear} text="clear" />
+          <Button type="submit" className={styles.submitButton} text="Run" />
+          <Button
+            type="button"
+            onClick={wipeData}
+            className={styles.clear}
+            text="clear"
+          />
         </div>
       </form>
       {isLoading ? <Loader /> : renderData()}

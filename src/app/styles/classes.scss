@@ -28,19 +28,6 @@
   left: 0;
 }
 
-@mixin box {
-  display: inline-flex;
-  flex-grow: 1;
-  margin: 1rem;
-  padding: 3rem;
-  border-radius: 1rem;
-  background: white;
-
-  @media screen {
-    padding: 3rem 5%;
-  }
-}
-
 @mixin shadow {
   box-shadow: 0 0 5px #333;
 }

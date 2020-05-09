@@ -16,17 +16,27 @@ $nav-width: 10rem;
     .sideNav {
       display: inline-flex;
       flex-direction: column;
+      box-shadow: shadow();
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
 
       .page {
-        box-shadow: shadowBottom(), shadowRight();
+        background-color: rgb(232, 232, 232);
         flex: 1;
 
         &:first-child {
           border-top-right-radius: 1rem;
-          box-shadow: shadowTop(), shadowRight();
+
           flex: 1;
+
+          border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+          border-top: none;
         }
+        border-top: 1px solid rgba(128, 128, 128, 0.5);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
         &:last-child {
+          border-top: 1px solid rgba(128, 128, 128, 0.5);
+          border-bottom: none;
           border-bottom-right-radius: 1rem;
         }
         // border-right: 1px solid $gray-light;
@@ -35,7 +45,7 @@ $nav-width: 10rem;
         transition: background-color 200ms;
 
         &:hover {
-          background-color: rgb(232, 232, 232);
+          background-color: transparent;
         }
       }
     }
