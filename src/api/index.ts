@@ -1,9 +1,8 @@
 import axios, { AxiosResponse } from "axios";
-
 export * from "./users";
 export * from "./analytics";
-const EVENT_URL = "http://localhost:4433";
-const USER_URL = "http://localhost:8090";
+
+const { EVENT_API, USER_API } = process.env;
 
 const createApi = (baseUrl: string) => async (
   path: string,
@@ -32,5 +31,5 @@ const createApi = (baseUrl: string) => async (
   return res as AxiosResponse;
 };
 
-export const eventApi = createApi(EVENT_URL);
-export const userApi = createApi(USER_URL);
+export const eventApi = createApi(EVENT_API as string);
+export const userApi = createApi(USER_API as string);

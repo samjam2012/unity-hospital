@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-import { getUser, createUser, fireEvent, healthCheck } from "../api";
+import { getUser, fireEvent, healthCheck } from "../api";
 import { normalizeUser } from "./utils";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
@@ -44,9 +44,9 @@ const Auth0Provider = ({
 
         if (userType === "ADMIN") {
           try {
-            await healthCheck();
-
             const user = await getUser(authId);
+
+            await healthCheck();
             if (user) {
               await fireEvent({
                 eventType: "LOGIN",
