@@ -1,13 +1,10 @@
-import { eventApi } from ".";
+import { createApi } from "./middleware";
 import moment from "moment";
 
-async function healthCheck() {
-  const { data } = await eventApi("/ping");
+const { REACT_APP_EVENT_API } = process.env;
+export const eventApi = createApi(REACT_APP_EVENT_API as string);
 
-  return data;
-}
-
-async function fireEvent({ eventType, eventDetails }) {
+const fireEvent = async ({ eventType, eventDetails }) => {
   const generateEventBody = () => {
     const { id, userType, loginCount } = eventDetails;
     switch (eventType) {
@@ -39,9 +36,9 @@ async function fireEvent({ eventType, eventDetails }) {
   } catch (error) {
     return error;
   }
-}
+};
 
-async function getEventsInRange({ eventType }) {
+const getEventsInRange = async ({ eventType }) => {
   try {
     const floorTime = moment().subtract(7, "days").utc().format();
 
@@ -54,9 +51,15 @@ async function getEventsInRange({ eventType }) {
   } catch (error) {
     return error;
   }
-}
+};
 
-async function getUsageStats() {
+const healthCheck = async () => {
+  const { data } = await eventApi("/ping");
+
+  return data;
+};
+
+const getUsageStats = async () => {
   try {
     const {
       data: { creates, logins }
@@ -111,6 +114,6 @@ async function getUsageStats() {
   } catch (error) {
     return error;
   }
-}
+};
 
 export { healthCheck, fireEvent, getEventsInRange, getUsageStats };

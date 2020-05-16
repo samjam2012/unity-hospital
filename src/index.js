@@ -9,7 +9,11 @@ import { Auth0Provider } from "./providers/auth";
 setConfig({
   showReactDomPatchNotification: false
 });
-const { AUTH_DOMAIN: domain, AUTH_CLIENT: clientId } = process.env;
+
+const {
+  REACT_APP_AUTH_DOMAIN: domain,
+  REACT_APP_AUTH_CLIENT: clientId
+} = process.env;
 
 const onRedirectCallback = appState => {
   history.push(

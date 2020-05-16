@@ -1,4 +1,7 @@
-import { userApi } from ".";
+import { createApi } from "./middleware";
+const { REACT_APP_USER_API } = process.env;
+
+const userApi = createApi(REACT_APP_USER_API as string);
 
 const createUser = async (user: any) => {
   try {

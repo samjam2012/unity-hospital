@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-import { getUser, createUser, fireEvent, healthCheck } from "../api";
+import { getUser, createUser } from "../api/users";
+import { fireEvent, healthCheck } from "../api/events";
 import { normalizeUser } from "./utils";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
