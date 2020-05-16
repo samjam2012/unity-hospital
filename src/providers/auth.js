@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-import { getUser, fireEvent, healthCheck } from "../api";
+import { getUser, createUser, fireEvent, healthCheck } from "../api";
 import { normalizeUser } from "./utils";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
@@ -42,24 +42,22 @@ const Auth0Provider = ({
         const auth0User = normalizeUser(rawAuth0User);
         const { authId, userType, loginCount } = auth0User;
 
-        if (userType === "ADMIN") {
-          try {
-            const user = await getUser(authId);
+        try {
+          const user = await getUser(authId);
 
-            await healthCheck();
-            if (user) {
-              await fireEvent({
-                eventType: "LOGIN",
-                eventDetails: { ...user, userType, loginCount }
-              });
-            } else {
-              // Insert into DB if not already there
-              // await createUser(auth0User);
-            }
-          } catch (error) {
-            console.log("\n------Error------\n\n");
-            console.dir(error);
+          await healthCheck();
+          if (user) {
+            await fireEvent({
+              eventType: "LOGIN",
+              eventDetails: { ...user, userType, loginCount }
+            });
+          } else {
+            // Insert into DB if not already there
+            await createUser(auth0User);
           }
+        } catch (error) {
+          console.log("\n------Error------\n\n");
+          console.dir(error);
         }
 
         setUser(auth0User);
