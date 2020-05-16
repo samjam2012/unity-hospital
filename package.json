@@ -73,6 +73,7 @@
     "react-addons-test-utils": "^15.3.2",
     "react-app-rewire-clean-typescript": "^1.1.0",
     "react-app-rewire-hot-loader": "^2.0.1",
+    "react-app-rewired": "^2.1.5",
     "react-dev-utils": "^9.1.0",
     "react-dom": "^16.12.0",
     "react-favicon": "0.0.5",
@@ -184,8 +185,5 @@
       "@babel/preset-env",
       "react-app"
     ]
-  },
-  "devDependencies": {
-    "react-app-rewired": "^2.1.5"
   }
 }
