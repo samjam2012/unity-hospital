@@ -1,7 +1,6 @@
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const express = require("express");
-const favicon = require("express-favicon");
 const path = require("path");
 
 const { REACT_APP_EVENT_API, REACT_APP_USER_API } = process.env;
