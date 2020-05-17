@@ -39,7 +39,7 @@ app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.listen(3000, function (err) {
+app.listen(8080, function (err) {
   if (err) {
     console.log(err);
     return;
