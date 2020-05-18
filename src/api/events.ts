@@ -54,9 +54,11 @@ const getEventsInRange = async ({ eventType }) => {
 };
 
 const healthCheck = async () => {
-  const { data } = await eventApi("/ping");
+  try {
+    const { data } = await eventApi("/ping");
 
-  return data;
+    return data;
+  } catch (error) {}
 };
 
 const getUsageStats = async () => {
@@ -101,8 +103,8 @@ const getUsageStats = async () => {
     const deltaDays = moment(currentDay).diff(firstDay, "days");
 
     const activityData = [
-      `Avg New Daily Users - ${creates.length / deltaDays}`,
-      `Avg Daily Logins - ${logins.length / deltaDays}`,
+      `Avg New Daily Users - ${(creates.length / deltaDays).toFixed(2)}`,
+      `Avg Daily Logins - ${(logins.length / deltaDays).toFixed(2)}`,
       `Highest Login Count - ${maxLoginCount}`
     ];
     const userData = [

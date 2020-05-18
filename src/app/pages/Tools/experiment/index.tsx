@@ -99,6 +99,9 @@ export default function Experiment(props: Page) {
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
+
+    wipeData();
+
     if (eventInput) {
       setEventType(eventInput);
     } else if (procInput) {
