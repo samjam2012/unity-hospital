@@ -3,7 +3,7 @@ import { Page } from "../../../../interfaces/app/pages";
 import { Button, H, Row, Container, VLine } from "../../../components";
 import { useInput } from "../../../hooks";
 import styles from "./styles.scss";
-import { getEventsInRange, getUsageStats } from "../../../../api";
+import { getEventsInRange, getUsageStats } from "../../../../api/events";
 import HashLoader from "react-spinners/HashLoader";
 import _ from "lodash";
 import {
@@ -94,15 +94,14 @@ export default function Experiment(props: Page) {
     resetProc();
   };
   const wipeData = () => {
-    console.log("\n\nHiiiii");
-    console.log("\n------------\n\n");
-    console.log("\t" + "hi");
-    console.log("\n\n------------\n\n");
     setEvents([]);
     setUsage({});
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
+
+    wipeData();
+
     if (eventInput) {
       setEventType(eventInput);
     } else if (procInput) {
@@ -198,7 +197,6 @@ export default function Experiment(props: Page) {
               <FormControl>
                 <Select
                   className={styles.select}
-                  value={eventType}
                   variant="outlined"
                   labelId="input"
                   id="select"
@@ -220,7 +218,6 @@ export default function Experiment(props: Page) {
               <FormControl>
                 <Select
                   className={styles.select}
-                  value={proc}
                   variant="outlined"
                   labelId="input"
                   id="select"

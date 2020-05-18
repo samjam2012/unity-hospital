@@ -1,9 +1,17 @@
 import axios, { AxiosResponse } from "axios";
-
-export * from "./users";
-export * from "./analytics";
-const EVENT_URL = "http://localhost:4433";
-const USER_URL = "http://localhost:8090";
+import { createProxyMiddleware } from "http-proxy-middleware";
+const proxyApi = (app: any) => {
+  app.use(
+    createProxyMiddleware("/api-users", {
+      target: "http://localhost:8090/"
+    })
+  );
+  app.use(
+    createProxyMiddleware("/api-events", {
+      target: "http://localhost:4433/"
+    })
+  );
+};
 
 const createApi = (baseUrl: string) => async (
   path: string,
@@ -32,5 +40,4 @@ const createApi = (baseUrl: string) => async (
   return res as AxiosResponse;
 };
 
-export const eventApi = createApi(EVENT_URL);
-export const userApi = createApi(USER_URL);
+export { createApi, proxyApi };
